@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.navBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartIcon {
+  /* margin: 8px 15px auto 15px; */
+  width: 48px;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffdc60;
+}
+
+.greetUser {
+  margin: auto;
+}
