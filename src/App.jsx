@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./Components/Home";
 import About from "./Components/About";
 import { Button, Badge } from "antd";
-import { ShoppingCartOutlined, LogoutOutlined } from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
 
 function App() {
   return (
