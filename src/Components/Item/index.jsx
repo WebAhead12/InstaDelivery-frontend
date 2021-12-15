@@ -12,7 +12,7 @@ function Item(props) {
       <div className={style.price}>{props.price}₪</div>
       <div className={style.addBtn}>
         <Button type="primary" size="small">
-          Add to cart
+          Add
         </Button>
       </div>
     </div>

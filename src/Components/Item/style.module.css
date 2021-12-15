@@ -16,10 +16,11 @@
 }
 
 .addBtn Button {
-  width: 5em;
+  width: 6em;
   height: 1.5em;
+  font-size: 12px;
   background-color: #c1c1c1;
-  border-color: black;
+  border-color: #c1c1c1;
   color: black;
 }
 
