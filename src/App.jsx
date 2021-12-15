@@ -8,7 +8,7 @@ import NavBar from "./Components/NavBar";
 function App() {
   return (
     <div className="App">
-      <NavBar buttonValue="Logout" text="Welcome User" count="1" />
+      <NavBar buttonValue="Logout" text="Welcome, Nur!" count="5" />
 
       <h1>Welcome to React Router!</h1>
       <Routes>
