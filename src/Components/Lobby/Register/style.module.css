@@ -1,0 +1,23 @@
+.submit {
+  background-color: black;
+  color: white;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+label {
+  display: flex;
+  text-align: left;
+  margin-left: 105px;
+}
+
+.nameInput,
+.emailInput,
+.passwordInput,
+.confirmPasswordInput {
+  border-radius: 8px;
+}

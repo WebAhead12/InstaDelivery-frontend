@@ -3,7 +3,7 @@ import style from "./style.module.css";
 import { useState } from "react";
 import ShopButton from "../../ShopButton";
 
-function LoginPage(props) {
+function Login(props) {
   // const history = useNavigate();
   const [loginData, setLoginData] = useState({
     email: "",
@@ -78,4 +78,4 @@ function LoginPage(props) {
   );
 }
 
-export default LoginPage;
+export default Login;

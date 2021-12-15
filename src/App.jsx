@@ -8,15 +8,12 @@ import Lobby from "./Components/Lobby";
 
 function App() {
   const location = useLocation();
-  if (location.pathname === "/lobby") return <Lobby />;
-  else {
+  if (location.pathname === "/lobby") {
+    return <Lobby />;
+  } else {
     return (
       <div className="App">
-        {location.pathname === "/login" ||
-        location.pathname === "/register" ? null : (
-          <NavBar buttonValue="Logout" text="Welcome, Nur!" count="5" />
-        )}
-
+        <NavBar buttonValue="Logout" text="Welcome, Nur!" count="5" />
         <h1>Welcome to React App</h1>
 
         <Dairy />

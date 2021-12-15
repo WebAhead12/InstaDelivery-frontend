@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./style.module.css";
 import ShopButton from "../ShopButton";
 import Login from "./Login";
-// import Register from "./Register";
+import Register from "./Register";
 
 function Lobby() {
   const [toggle, setToggle] = useState(false); //used to switch login/register components
@@ -17,7 +17,7 @@ function Lobby() {
           value="Login"
           type="primary"
           shape="default"
-          background="#867DF5"
+          background={!toggle ? "#867DF5" : "#BCB7FA"}
           borderColor="#ccc"
           color="black"
           onClick={() => {
@@ -28,7 +28,7 @@ function Lobby() {
           value="Register"
           type="primary"
           shape="default"
-          background="#BCB7FA"
+          background={!toggle ? "#BCB7FA" : "#867DF5"}
           borderColor="#ccc"
           color="black"
           onClick={() => {
@@ -36,8 +36,7 @@ function Lobby() {
           }}
         />
       </div>
-
-      <Login />
+      {!toggle ? <Login /> : <Register />}
     </div>
   );
 }
