@@ -44,50 +44,65 @@ function RegisterPage() {
       <form onSubmit={onSubmit}>
         <div className={style.name}>
           <label htmlFor="name" className={style.nameLabel}>
-            Name
+            Name:
           </label>
+
           <input
+            id="name"
             type="text"
-            className={style.name}
+            className={style.nameInput}
             placeholder="John Snow"
             onChange={onChange("name")}
             value={account.name}
             required
           />
+          <br />
+          <br />
         </div>
         <div className={style.email}>
           <label htmlFor="email" className={style.emailLabel}>
-            Email
+            Email:
           </label>
+
           <input
+            id="email"
             type="text"
-            className={style.emailLabel}
+            className={style.emailInput}
             placeholder="johnSnow1@gmail.com"
             onChange={onChange("email")}
             value={account.email}
             required
           />
+          <br />
+          <br />
         </div>
-        <div className="password"></div>
+        <div className={style.password}></div>
         <label htmlFor="password" className={style.passwordLabel}>
-          Password
+          Password:
         </label>
+
         <input
+          id="password"
           type="password"
-          className={style.passwordLabel}
+          className={style.passwordInput}
           placeholder="e.g. Enter password here"
           onChange={onChange("password")}
           value={account.password}
           required
         />
-        <div className="confirmPassword"></div>
+
+        <br />
+        <br />
+        <div className={style.confirmPassword}></div>
         <label htmlFor="password" className={style.confirmPasswordLabel}>
-          Confirm Password
+          Confirm Password:
         </label>
+
         <input
-          type="confirmPassword"
-          className={style.confirmPasswordLabel}
-          placeholder="e.g. Enter password again"
+          id="confirmPassword"
+          type="password"
+          className={style.confirmPasswordInput}
+          placeholder="Enter password again"
           onChange={onChange("confirmPassword")}
           value={account.confirmPassword}
           required

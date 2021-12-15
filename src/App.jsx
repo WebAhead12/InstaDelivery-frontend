@@ -6,7 +6,7 @@ import NavBar from "./Components/NavBar";
 import Dairy from "./Components/Store/Dairy";
 // import Item from "./Components/Item";
 import LoginPage from "./Components/Login";
-import RegisterPage from "./Components/Register";
+import RegisterPage from "./Components/Lobby/Register";
 import { useLocation } from "react-router-dom";
 // import Lobby from ".Components/Lobby";
 
@@ -23,7 +23,8 @@ function App() {
       </div>
       <Dairy />
 
-      {location.pathname === "/login" ? null : (
+      {location.pathname === "/login" ||
+      location.pathname === "/register" ? null : (
         <NavBar buttonValue="Logout" text="Welcome, Nur!" count="5" />
       )}
       <h1>Categories</h1>
