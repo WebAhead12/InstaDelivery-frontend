@@ -1,0 +1,13 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}

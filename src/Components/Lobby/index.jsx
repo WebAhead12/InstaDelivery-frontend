@@ -1,24 +1,44 @@
-// import { useState } from "react";
-// import LoginPage from "../Login";
-// import RegisterPage from "../Register";
+import { useState } from "react";
+import style from "./style.module.css";
+import ShopButton from "../ShopButton";
+import Login from "./Login";
+// import Register from "./Register";
 
-// function Lobby() {
-//   const [toggle, setToggle] = useState(false);
+function Lobby() {
+  const [toggle, setToggle] = useState(false); //used to switch login/register components
 
-//   const selection = (registered) => (registered ? RegisterPage : LoginPage);
-// }
+  return (
+    <div className="lobby">
+      <div className={style.logo}>
+        <img src="/Logo.png" alt="" />
+      </div>
+      <div className={style.selectActive}>
+        <ShopButton
+          value="Login"
+          type="primary"
+          shape="default"
+          background="#867DF5"
+          borderColor="#ccc"
+          color="black"
+          onClick={() => {
+            setToggle(!toggle);
+          }}
+        />
+        <ShopButton
+          value="Register"
+          type="primary"
+          shape="default"
+          background="#BCB7FA"
+          borderColor="#ccc"
+          color="black"
+          onClick={() => {
+            setToggle(!toggle);
+          }}
+        />
+      </div>
 
-// return <div className="Login"></div>;
-
-// <button className="registerBtn" type="register">
-// <a href="/register">Register</a>
-// </button>
-
-{
-  /* <div className={style.register}>
-<button className={style.loginBtn} type="login">
-  <a href="/login">Login</a>
-</button> */
+      <Login />
+    </div>
+  );
 }
-
-// export default Lobby;
+export default Lobby;

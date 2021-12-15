@@ -1,4 +1,4 @@
-import Item from "../../Item";
+import Item from "../Item";
 import dairyItems from "../../../Products/dairyItems";
 import style from "./style.module.css";
 
@@ -12,7 +12,6 @@ function Dairy() {
             imgUrl={item.imgUrl}
             name={item.name}
             price={item.price}
-            addBtn={item.addBtn}
           />
         );
       })}

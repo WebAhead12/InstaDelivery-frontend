@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 0;
+}
+
+.logo img {
+  width: 228px;
+  height: 52px;
+}
+.selectActive {
+  display: flex;
+  justify-content: space-between;
+  margin: 15%;
+}
