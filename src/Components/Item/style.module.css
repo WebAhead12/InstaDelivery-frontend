@@ -1,0 +1,29 @@
+.item {
+  display: inline-block;
+}
+.name {
+  display: flex;
+  justify-content: left;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.price {
+  display: flex;
+  justify-content: left;
+  margin-left: 5px;
+  font-size: 10px;
+}
+
+.addBtn Button {
+  width: 5em;
+  height: 1.5em;
+  background-color: #c1c1c1;
+  border-color: black;
+  color: black;
+}
+
+.itemImg img {
+  width: 5em;
+  height: 5em;
+}
