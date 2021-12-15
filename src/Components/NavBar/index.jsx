@@ -3,6 +3,7 @@ import CartIcon from "./CartIcon";
 import Central from "./Central";
 import ButtonShop from "../ShopButton";
 
+//NavBar
 function NavBar(props) {
   if (props.buttonValue === "Logout") {
     return (
