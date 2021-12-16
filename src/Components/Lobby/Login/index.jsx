@@ -16,7 +16,6 @@ function Login(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("an attemp to log in.");
     goTo("/");
   };
 
