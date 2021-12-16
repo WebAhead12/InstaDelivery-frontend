@@ -33,6 +33,7 @@ function Login(props) {
 
   return (
     <form onSubmit={onSubmit} className={style.login}>
+      <div className="loginInfo">
       <div className={style.email}>
         <label htmlFor="email" className={style.emailLabel}>
           Email:
@@ -62,9 +63,12 @@ function Login(props) {
           value={loginData.password}
           required
         />
+        
+      </div>
       </div>
       <br />
       <br />
+      <div className="loginBtn">
       <ShopButton
         value="Login"
         type="primary"
@@ -74,6 +78,7 @@ function Login(props) {
         color="white"
         onClick={onSubmit}
       />
+      </div>
     </form>
   );
 }
