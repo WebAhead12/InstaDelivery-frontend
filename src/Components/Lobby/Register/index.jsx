@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 import { useState } from "react";
-import ShopButton from "../../ShopButton";
+import { Button } from "antd";
 
 function Register() {
   const goTo = useNavigate();
@@ -43,9 +43,8 @@ function Register() {
   };
 
   return (
-       
     <form className={style.register} onSubmit={onSubmit}>
-          <div className="registrationInfo">
+      <div className="registrationInfo">
         <div className={style.name}>
           <label htmlFor="name" className={style.nameLabel}>
             Name:
@@ -111,21 +110,19 @@ function Register() {
           value={account.confirmPassword}
           required
         />
-        </div>
-        <br />
-        <br />
-        <ShopButton
-          value="Register"
+      </div>
+      <br />
+      <br />
+      <div className={style.button}>
+        <Button
           type="primary"
-          shape="default"
-          background="black"
-          borderColor="#ccc"
-          color="white"
-          
+          style={{ background: "black", borderColor: "#ccc", color: "white" }}
           onClick={onSubmit}
-        />
-      </form>
-
+        >
+          Register
+        </Button>
+      </div>
+    </form>
   );
 }
 

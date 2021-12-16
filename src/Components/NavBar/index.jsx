@@ -1,8 +1,8 @@
 import style from "./style.module.css";
 import CartIcon from "./CartIcon";
 import Central from "./Central";
-import ButtonShop from "../ShopButton";
 import { useNavigate } from "react-router-dom";
+import { Button } from "antd";
 
 //NavBar
 function NavBar(props) {
@@ -10,11 +10,15 @@ function NavBar(props) {
   if (props.buttonValue === "Logout") {
     return (
       <div className={style.navBar}>
-        <ButtonShop
-          onClick={() => toGo("/lobby")}
-          type="primary"
-          value={props.buttonValue}
-        />
+        <div className={style.button}>
+          <Button
+            type="primary"
+            style={{ background: "black", borderColor: "#ccc", color: "white" }}
+            onClick={() => toGo("/lobby")}
+          >
+            Logout
+          </Button>
+        </div>
         <Central text={props.text} />
         <CartIcon count={props.count} />
       </div>
@@ -22,17 +26,21 @@ function NavBar(props) {
   } else {
     return (
       <div className={style.navBar}>
-        <ButtonShop
+        <Button
           type="primary"
+          style={{ background: "black", borderColor: "#ccc", color: "white" }}
           onClick={() => toGo("/lobby")}
-          value="Logout"
-        />
+        >
+          Logout
+        </Button>
         <Central text={props.text} />
-        <ButtonShop
+        <Button
           type="primary"
+          style={{ background: "black", borderColor: "#ccc", color: "white" }}
           onClick={() => toGo("/home")}
-          value={props.buttonValue}
-        />
+        >
+          Home
+        </Button>
       </div>
     );
   }
