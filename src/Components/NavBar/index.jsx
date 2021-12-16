@@ -1,5 +1,5 @@
 import style from "./style.module.css";
-import CartIcon from "./CartIcon";
+import Cart from "../Store/Cart";
 import Central from "./Central";
 import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
@@ -20,7 +20,7 @@ function NavBar(props) {
           </Button>
         </div>
         <Central text={props.text} />
-        <CartIcon count={props.count} />
+        <Cart count={props.count} />
       </div>
     );
   } else {
