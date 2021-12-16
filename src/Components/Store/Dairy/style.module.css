@@ -1,5 +1,11 @@
 .dairy {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 15px;
+}
+.productDetails {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: normal;
 }
