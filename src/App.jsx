@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home";
-import NavBar from "./Components/NavBar";
-import Dairy from "./Components/Store/Dairy";
 import { useLocation } from "react-router-dom";
 import Lobby from "./Components/Lobby";
 
