@@ -4,7 +4,7 @@ import { useState } from "react";
 import ShopButton from "../../ShopButton";
 
 function Register() {
-  const history = useNavigate();
+  const goTo = useNavigate();
   const [account, setAccount] = useState({
     name: "",
     email: "",
@@ -37,6 +37,8 @@ function Register() {
       //   .catch((error) => console.error(error))
       // }
       //   }
+    } else {
+      goTo("/");
     }
   };
 

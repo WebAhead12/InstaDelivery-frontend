@@ -26,6 +26,7 @@ const icon = (value) => {
 function ShopButton(props) {
   return (
     <Button
+      onClick={props.onClick}
       type={props.type}
       shape={props.shape}
       style={{
