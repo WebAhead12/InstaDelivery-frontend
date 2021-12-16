@@ -10,8 +10,6 @@ import {
 //icon will be imbed as a button value.
 const icon = (value) => {
   switch (value) {
-    case "Logout":
-      return <LogoutOutlined />;
     case "Home":
       return <HomeOutlined />;
     case "Login":
@@ -19,7 +17,7 @@ const icon = (value) => {
     case "Register":
       return <FormOutlined />;
     default:
-      return <ExclamationOutlined />;
+      return "";
   }
 };
 

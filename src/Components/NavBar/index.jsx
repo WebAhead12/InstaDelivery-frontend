@@ -13,10 +13,6 @@ function NavBar(props) {
         <ButtonShop
           onClick={() => toGo("/lobby")}
           type="primary"
-          shape="round"
-          background="black"
-          borderColor="#ffdc60"
-          color="#ffdc60"
           value={props.buttonValue}
         />
         <Central text={props.text} />
@@ -28,20 +24,12 @@ function NavBar(props) {
       <div className={style.navBar}>
         <ButtonShop
           type="primary"
-          shape="rodund"
-          background="black"
-          borderColor="#ffdc60"
-          color="#ffdc60"
           onClick={() => toGo("/lobby")}
           value="Logout"
         />
         <Central text={props.text} />
         <ButtonShop
           type="primary"
-          shape="round"
-          background="black"
-          borderColor="#ffdc60"
-          color="#ffdc60"
           onClick={() => toGo("/home")}
           value={props.buttonValue}
         />
