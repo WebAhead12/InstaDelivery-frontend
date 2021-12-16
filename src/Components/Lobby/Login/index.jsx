@@ -1,10 +1,10 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 import { useState } from "react";
 import ShopButton from "../../ShopButton";
 
 function Login(props) {
-  // const history = useNavigate();
+  const goTo = useNavigate();
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -17,6 +17,7 @@ function Login(props) {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log("an attemp to log in.");
+    goTo("/");
   };
 
   //   loginData(loginData)

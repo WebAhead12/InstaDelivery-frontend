@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
@@ -13,11 +13,6 @@ function App() {
   } else {
     return (
       <div className="App">
-        <NavBar buttonValue="Logout" text="Welcome, Nur!" count="5" />
-        <h1>Welcome to React App</h1>
-
-        <Dairy />
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="lobby" element={<Lobby />} />
