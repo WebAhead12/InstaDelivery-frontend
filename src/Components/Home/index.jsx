@@ -6,7 +6,8 @@ function Home(props) {
   return (
     <div className="home">
       <NavBar buttonValue="Logout" text="Welcome, Nur!" count="5" />
-      <h1>Welcome to React App</h1>
+
+      <h1>Mario was here</h1>
 
       <Dairy />
     </div>
