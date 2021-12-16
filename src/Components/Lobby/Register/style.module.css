@@ -1,28 +1,28 @@
-
-
-
 .submit {
   background-color: black;
   color: white;
-
 }
 
 .register {
   display: flex;
   flex-direction: column;
+  margin-top: 100px;
   justify-content: center;
   align-items: center;
   transform: scale(1.2);
 }
 
-.nameLabel, .emailLabel, .passwordLabel, .confirmPasswordLabel {
+.nameLabel,
+.emailLabel,
+.passwordLabel,
+.confirmPasswordLabel {
   display: flex;
   text-align: left;
+  margin-left: 105px;
   justify-content: left;
 
   /* margin-left: 105px; */
 }
-
 
 /* label {
   display: flex;

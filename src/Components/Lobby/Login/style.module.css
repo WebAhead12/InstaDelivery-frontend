@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .email,
@@ -16,11 +15,12 @@
   line-height: 25px;
 }
 
-.emailInput, .passwordInput {
+.emailInput,
+.passwordInput {
   width: 200px;
   border-radius: 8px;
 }
 
 .loginBtn {
-transform: scale(1.2);
+  transform: scale(1.2);
 }
