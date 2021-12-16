@@ -41,8 +41,9 @@ function Register() {
   };
 
   return (
-    <div className={style.register}>
-      <form onSubmit={onSubmit}>
+       
+    <form className={style.register} onSubmit={onSubmit}>
+          <div className="registrationInfo">
         <div className={style.name}>
           <label htmlFor="name" className={style.nameLabel}>
             Name:
@@ -108,6 +109,7 @@ function Register() {
           value={account.confirmPassword}
           required
         />
+        </div>
         <br />
         <br />
         <ShopButton
@@ -117,10 +119,11 @@ function Register() {
           background="black"
           borderColor="#ccc"
           color="white"
+          
           onClick={onSubmit}
         />
       </form>
-    </div>
+
   );
 }
 

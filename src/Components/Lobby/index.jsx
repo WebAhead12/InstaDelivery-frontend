@@ -9,6 +9,7 @@ function Lobby() {
 
   return (
     <div className="lobby">
+      <div className="registrationInfo">
       <div className={style.logo}>
         <img src="/Logo.png" alt="" />
       </div>
@@ -20,6 +21,7 @@ function Lobby() {
           background={!toggle ? "#867DF5" : "#BCB7FA"}
           borderColor="#ccc"
           color="black"
+          
           onClick={() => {
             setToggle(!toggle);
           }}
@@ -35,6 +37,7 @@ function Lobby() {
             setToggle(!toggle);
           }}
         />
+        </div>
       </div>
       {!toggle ? <Login /> : <Register />}
     </div>

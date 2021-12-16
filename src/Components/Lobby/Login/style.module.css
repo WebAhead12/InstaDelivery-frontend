@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .email,
@@ -10,4 +11,16 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+  justify-content: left;
+  transform: scale(1.3);
+  line-height: 25px;
+}
+
+.emailInput, .passwordInput {
+  width: 200px;
+  border-radius: 8px;
+}
+
+.loginBtn {
+transform: scale(1.2);
 }
