@@ -1,14 +1,22 @@
 import style from "./style.module.css";
-
+import { Button } from "antd";
 function Search() {
   return (
     <div className={style.search}>
-      <br />
       <input
         className={style.searchInput}
         placeholder="Search for a product..."
       ></input>
-      <button className={style.searchBtn}>Search</button>
+      <Button
+        style={{
+          background: "#b1dda9",
+          color: "black",
+          borderColor: "black",
+          borderRadius: "8px",
+        }}
+      >
+        Search
+      </Button>
     </div>
   );
 }
