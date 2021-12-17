@@ -5,19 +5,25 @@ import style from "./style.module.css";
 function Dairy(props) {
   return (
     <div className={style.dairy}>
-      {dairyItems.map((item, idx) => {
-        return (
-          <Item
-            key={idx}
-            id={item.id}
-            imgUrl={item.imgUrl}
-            name={item.name}
-            price={item.price}
-            clickAdd={props.clickAdd}
-            updateItem={props.updateItem}
-          />
-        );
-      })}
+      <div className={style.titleDairy}>
+        <p id="dairy">Dairy</p>
+      </div>
+
+      <div className={style.items}>
+        {dairyItems.map((item, idx) => {
+          return (
+            <Item
+              key={idx}
+              id={item.id}
+              imgUrl={item.imgUrl}
+              name={item.name}
+              price={item.price}
+              clickAdd={props.clickAdd}
+              updateItem={props.updateItem}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

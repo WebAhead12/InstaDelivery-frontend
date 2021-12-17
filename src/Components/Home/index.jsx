@@ -26,8 +26,7 @@ function Home() {
   return (
     <div className="home">
       <NavBar buttonValue="Logout" count={badgeCount} addItemToCart={item} />
-
-      <h1>Mario was here</h1>
+      <Categories />
 
       <Dairy clickAdd={clickAdd} updateItem={updateItem} />
     </div>
