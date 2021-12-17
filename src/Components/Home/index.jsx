@@ -2,6 +2,7 @@
 import NavBar from "../NavBar";
 import Categories from "../Store/Categories";
 import Dairy from "../Store/Dairy";
+import Search from "../Search";
 import { useState } from "react";
 
 function Home() {
@@ -27,6 +28,7 @@ function Home() {
     <div className="home">
       <NavBar buttonValue="Logout" count={badgeCount} addItemToCart={item} />
       <Categories />
+      <Search />
 
       <Dairy clickAdd={clickAdd} updateItem={updateItem} />
     </div>
