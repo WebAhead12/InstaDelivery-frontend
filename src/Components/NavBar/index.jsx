@@ -19,8 +19,8 @@ function NavBar(props) {
             Logout
           </Button>
         </div>
-        <Central text={props.text} />
-        <Cart count={props.count} />
+        <Central />
+        <Cart count={props.count} item={props.addItemToCart} />
       </div>
     );
   } else {
@@ -33,7 +33,7 @@ function NavBar(props) {
         >
           Logout
         </Button>
-        <Central text={props.text} />
+        <Central />
         <Button
           type="primary"
           style={{ background: "black", borderColor: "#ccc", color: "white" }}

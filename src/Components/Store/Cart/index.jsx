@@ -1,11 +1,20 @@
 import style from "./style.module.css";
-
 import React, { useState } from "react";
-
 import { Drawer, Button, Badge } from "antd";
+import Item from "../Item";
 
-function Cart(prop) {
+function Cart(props) {
+  console.log();
+
   const [visible, setVisible] = useState(false);
+
+  //array of items being added to cart.
+  const [items, setItems] = useState([]);
+
+  //when an item is clicked and not chosen before.
+  if (props.item.id && !items.includes(props.item)) {
+    setItems([...items, props.item]);
+  }
 
   const showDrawer = () => {
     setVisible(true);
@@ -17,7 +26,7 @@ function Cart(prop) {
   return (
     <div className={style.cart}>
       <div className={style.cartIcon}>
-        <Badge size="small" count={prop.count}>
+        <Badge size="small" count={props.count}>
           <img
             src="/icons/shopping-cart.png"
             alt="shopping cart"
@@ -32,6 +41,20 @@ function Cart(prop) {
           onClose={onClose}
           visible={visible}
         >
+          {/* unfinished */}
+          {items.map((item, idx) => {
+            return (
+              <Item
+                key={idx}
+                id={item.id}
+                imgUrl={item.imgUrl}
+                name={item.name}
+                price={item.price}
+                clickAdd={props.clickAdd}
+                updateItem={props.updateItem}
+              />
+            );
+          })}
           <p>Some contents...</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
