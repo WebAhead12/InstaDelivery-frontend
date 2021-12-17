@@ -1,0 +1,26 @@
+.categoryBar {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+a {
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  line-height: 2;
+}
+
+a:link,
+a:visited {
+  border: 1px solid black;
+  background-color: #faf9d2;
+  color: black !important;
+}
+
+a:active {
+  background-color: #b6b597;
+  color: black;
+}

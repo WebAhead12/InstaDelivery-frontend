@@ -6,19 +6,19 @@
   display: flex;
   justify-content: left;
   margin-left: 5px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .price {
   display: flex;
   justify-content: left;
   margin-left: 5px;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .addBtn Button {
   width: 6em;
-  height: 1.5em;
+  height: 2em;
   font-size: 12px;
   background-color: #c1c1c1;
   border-color: #c1c1c1;
@@ -26,6 +26,6 @@
 }
 
 .itemImg img {
-  width: 5em;
-  height: 5em;
+  width: 7.5em;
+  height: 7.5em;
 }

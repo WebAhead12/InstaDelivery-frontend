@@ -69,7 +69,7 @@ const dairyItems = [
   {
     id: "12",
     imgUrl: "/store/dairy/vanilla soy milk.jpg",
-    name: "Vanilla Soy Milk",
+    name: "Van. Soy Milk",
     price: "11.90",
   },
 ];
