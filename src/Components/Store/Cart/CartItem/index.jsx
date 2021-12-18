@@ -67,6 +67,7 @@ function CartItem(props) {
           }}
         />
       </div>
+
       <div className={style.price}>{(props.price * quantity).toFixed(2)}₪</div>
     </div>
   );

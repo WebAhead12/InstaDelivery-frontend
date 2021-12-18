@@ -79,17 +79,20 @@ function Cart(props) {
           {items &&
             items.map((item, idx) => {
               return (
-                <Item
-                  key={idx}
-                  id={item.id}
-                  imgUrl={item.imgUrl}
-                  name={item.name}
-                  price={item.price}
-                  item={item}
-                  updateQuantity={updateItemQuantity}
-                  updateBadge={props.updateItemsCounter}
-                  removeItem={removeItemFromCart}
-                />
+                <div className={style.itemsMap}>
+                  <Item
+                    key={idx}
+                    id={item.id}
+                    imgUrl={item.imgUrl}
+                    name={item.name}
+                    price={item.price}
+                    item={item}
+                    updateQuantity={updateItemQuantity}
+                    updateBadge={props.updateItemsCounter}
+                    removeItem={removeItemFromCart}
+                  />
+                  <hr />
+                </div>
               );
             })}
           <div className={style.checkOut}>

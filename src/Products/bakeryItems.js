@@ -5,13 +5,13 @@ const bakeryItems = [
     id: "1",
     imgUrl: "/store/bakery/bagels.jpg",
     name: "Bagels 1c.",
-    price: "e. 1.90",
+    price: "1.90",
   },
   {
     id: "2",
     imgUrl: "/store/bakery/baguette.jpg",
     name: "Baguettes 2c.",
-    price: "c. 2.90 ",
+    price: "2.90",
   },
   {
     id: "3",
