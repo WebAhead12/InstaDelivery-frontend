@@ -2,12 +2,13 @@
 import NavBar from "../NavBar";
 import Categories from "../Store/Categories";
 import Dairy from "../Store/Dairy";
+import Bakery from "../Store/Bakery";
 import Search from "../Search";
 import { useState } from "react";
 
 function Home() {
   //number of item added to cart
-  const [badgeCount, setBadeCount] = useState(0);
+  const [badgeCount, setBadgeCount] = useState(0);
   //the last clicked item
   const [item, setItem] = useState({
     id: "",
@@ -18,7 +19,7 @@ function Home() {
   });
   //pass the function to Item inorder to update state when item added
   const clickAdd = () => {
-    setBadeCount(badgeCount + 1);
+    setBadgeCount(badgeCount + 1);
   };
 
   const updateItem = (itemObj) => {
@@ -31,6 +32,7 @@ function Home() {
       <Search />
 
       <Dairy clickAdd={clickAdd} updateItem={updateItem} />
+      <Bakery />
     </div>
   );
 }

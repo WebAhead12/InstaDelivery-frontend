@@ -81,7 +81,9 @@ function Cart(props) {
                 />
               );
             })}
-          <Button type="primary">Check-out</Button>
+          <div className={style.checkOut}>
+            <Button type="primary">Check-out</Button>
+          </div>
         </Drawer>
       </div>
     </div>

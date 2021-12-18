@@ -10,3 +10,10 @@
   width: 24px;
   height: 24px;
 }
+
+.checkOut {
+  position: fixed;
+  bottom: 0;
+
+  background-color: violet;
+}

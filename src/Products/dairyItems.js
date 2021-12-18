@@ -1,37 +1,37 @@
 const dairyItems = [
   {
-    id: "1",
+    id: "q",
     imgUrl: "/store/dairy/1 milk.jpg",
     name: "1% Milk",
     price: "10.90",
   },
   {
-    id: "2",
+    id: "q",
     imgUrl: "/store/dairy/3 milk.jpg",
     name: "3% Milk",
     price: "10.90",
   },
   {
-    id: "3",
+    id: "q",
     imgUrl: "/store/dairy/large yogurt.jpg",
     name: "Large Yogurt",
     price: "25.90",
   },
   {
-    id: "4",
+    id: "q",
     imgUrl: "/store/dairy/eggs.jpg",
     name: "Eggs",
     price: "29.90",
   },
 
   {
-    id: "5",
+    id: "q",
     imgUrl: "/store/dairy/oat milk.jpg",
     name: "Oat Milk",
     price: "11.90",
   },
   {
-    id: "6",
+    id: "q",
     imgUrl: "/store/dairy/almond milk.jpg",
     name: "Almond Milk",
     price: "11.90",
@@ -71,6 +71,24 @@ const dairyItems = [
     imgUrl: "/store/dairy/vanilla soy milk.jpg",
     name: "Van. Soy Milk",
     price: "11.90",
+  },
+  {
+    id: "13",
+    imgUrl: "/store/dairy/yellow cheese.jpg",
+    name: "Yellow Cheese",
+    price: "22.90",
+  },
+  {
+    id: "14",
+    imgUrl: "/store/dairy/mozzerella cheese.jpg",
+    name: "Mozzerella",
+    price: "19.90",
+  },
+  {
+    id: "15",
+    imgUrl: "/store/dairy/cheddar.jpg",
+    name: "Cheddar",
+    price: "23.90",
   },
 ];
 
