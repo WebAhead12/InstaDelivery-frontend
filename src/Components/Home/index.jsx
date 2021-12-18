@@ -14,11 +14,18 @@ function Home() {
     imgUrl: "",
     name: "",
     price: "",
-    quantity: 0,
   });
   //pass the function to Item inorder to update state when item added
-  const clickAdd = () => {
-    setBadeCount(badgeCount + 1);
+  const itemsCounter = (op = "increase", leap = 0) => {
+    if (op === "decrease") {
+      if (leap) {
+        setBadeCount(badgeCount - leap);
+      } else {
+        setBadeCount(badgeCount - 1);
+      }
+    } else {
+      setBadeCount(badgeCount + 1);
+    }
   };
 
   const updateItem = (itemObj) => {
@@ -26,11 +33,16 @@ function Home() {
   };
   return (
     <div className="home">
-      <NavBar buttonValue="Logout" count={badgeCount} addItemToCart={item} />
+      <NavBar
+        buttonValue="Logout"
+        count={badgeCount}
+        addItemToCart={item}
+        clickOnPlusMinus={itemsCounter}
+      />
       <Categories />
       <Search />
 
-      <Dairy clickAdd={clickAdd} updateItem={updateItem} />
+      <Dairy clickAdd={itemsCounter} updateItem={updateItem} />
     </div>
   );
 }

@@ -20,7 +20,11 @@ function NavBar(props) {
           </Button>
         </div>
         <Central />
-        <Cart count={props.count} item={props.addItemToCart} />
+        <Cart
+          count={props.count}
+          item={props.addItemToCart}
+          updateItemsCounter={props.clickOnPlusMinus}
+        />
       </div>
     );
   } else {
