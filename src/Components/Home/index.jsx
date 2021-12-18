@@ -7,15 +7,15 @@ import { useState } from "react";
 
 function Home() {
   //number of item added to cart
-  const [badgeCount, setBadeCount] = useState(1);
+  const [badgeCount, setBadeCount] = useState(0);
   //the last clicked item
   const [item, setItem] = useState({
     id: "",
     imgUrl: "",
     name: "",
     price: "",
+    quantity: 0,
   });
-
   //pass the function to Item inorder to update state when item added
   const clickAdd = () => {
     setBadeCount(badgeCount + 1);
