@@ -13,9 +13,17 @@ function Cart(props) {
   //update quantity for a given item.
   const updateItemQuantity = (item) => {
     const index = findIdx(items, item);
-    console.log(item.quantity);
     items[index].quantity = item.quantity;
     setItems([...items]);
+  };
+
+  //remove item from cart, for a given item remove it from the array of items.
+  const removeItemFromCart = (item) => {
+    const index = findIdx(items, item);
+    const newStateOfItems = items
+      .slice(0, index)
+      .concat(items.slice(index + 1, items.length));
+    setItems([...newStateOfItems]);
   };
 
   useEffect(() => {
@@ -26,6 +34,8 @@ function Cart(props) {
     if (props.item.id) {
       //insert to items only if it's not added before.
       if (index === -1) {
+        //make a new property for item object(props.item) when item pushed to items for the first time.
+        props.item.quantity = 1;
         setItems([...items, props.item]);
       } else {
         //if it is added update the quantity.
@@ -66,7 +76,6 @@ function Cart(props) {
           onClose={onClose}
           visible={visible}
         >
-          {/* unfinished */}
           {items &&
             items.map((item, idx) => {
               return (
@@ -78,6 +87,8 @@ function Cart(props) {
                   price={item.price}
                   item={item}
                   updateQuantity={updateItemQuantity}
+                  updateBadge={props.updateItemsCounter}
+                  removeItem={removeItemFromCart}
                 />
               );
             })}

@@ -5,6 +5,7 @@ import Dairy from "../Store/Dairy";
 import Bakery from "../Store/Bakery";
 import Search from "../Search";
 import { useState } from "react";
+import style from "./style.module.css";
 
 function Home() {
   //number of item added to cart
@@ -15,11 +16,18 @@ function Home() {
     imgUrl: "",
     name: "",
     price: "",
-    quantity: 0,
   });
   //pass the function to Item inorder to update state when item added
-  const clickAdd = () => {
-    setBadgeCount(badgeCount + 1);
+  const itemsCounter = (op = "increase", leap = 0) => {
+    if (op === "decrease") {
+      if (leap) {
+        setBadgeCount(badgeCount - leap);
+      } else {
+        setBadgeCount(badgeCount - 1);
+      }
+    } else {
+      setBadgeCount(badgeCount + 1);
+    }
   };
 
   const updateItem = (itemObj) => {
@@ -27,12 +35,18 @@ function Home() {
   };
   return (
     <div className="home">
-      <NavBar buttonValue="Logout" count={badgeCount} addItemToCart={item} />
-      <Categories />
-      <Search />
-
-      <Dairy clickAdd={clickAdd} updateItem={updateItem} />
-      <Bakery />
+      <div className={style.header}>
+        <NavBar
+          buttonValue="Logout"
+          count={badgeCount}
+          addItemToCart={item}
+          clickOnPlusMinus={itemsCounter}
+        />
+        <Categories />
+        <Search />
+      </div>
+      <Dairy clickAdd={itemsCounter} updateItem={updateItem} />
+      <Bakery clickAdd={itemsCounter} updateItem={updateItem} />
     </div>
   );
 }

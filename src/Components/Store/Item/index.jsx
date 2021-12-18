@@ -1,10 +1,7 @@
 import style from "./style.module.css";
 import { Button } from "antd";
-import React, { useState } from "react";
 
 function Item(props) {
-  const [quantity, setQuantity] = useState(1);
-
   return (
     <div className={style.item}>
       <div className={style.itemImg}>
@@ -22,14 +19,12 @@ function Item(props) {
             price: props.price,
           }}
           onClick={(e) => {
-            setQuantity(quantity + 1);
-            props.clickAdd();
+            props.clickAdd("increase");
             props.updateItem({
               id: props.id,
               imgUrl: props.imgUrl,
               name: props.name,
               price: props.price,
-              quantity: quantity,
             });
           }}
         >
