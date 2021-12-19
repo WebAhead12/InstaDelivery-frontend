@@ -6,6 +6,10 @@ import Bakery from "../Store/Bakery";
 import Search from "../Search";
 import { useState } from "react";
 import style from "./style.module.css";
+import Meat from "../Store/Meat";
+import Pantry from "../Store/Pantry";
+import Freezer from "../Store/Freezer";
+import Beverage from "../Store/Beverage";
 
 function Home() {
   //number of item added to cart
@@ -47,6 +51,10 @@ function Home() {
       </div>
       <Dairy clickAdd={itemsCounter} updateItem={updateItem} />
       <Bakery clickAdd={itemsCounter} updateItem={updateItem} />
+      <Meat clickAdd={itemsCounter} updateItem={updateItem} />
+      <Pantry clickAdd={itemsCounter} updateItem={updateItem} />
+      <Freezer clickAdd={itemsCounter} updateItem={updateItem} />
+      <Beverage clickAdd={itemsCounter} updateItem={updateItem} />
     </div>
   );
 }

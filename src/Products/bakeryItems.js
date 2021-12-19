@@ -1,5 +1,3 @@
-// ignore for now - I was testing something
-
 const bakeryItems = [
   {
     id: "201",

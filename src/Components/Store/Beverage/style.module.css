@@ -1,0 +1,25 @@
+.meat {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin: 15px;
+}
+.productDetails {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: normal;
+}
+
+.items {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+p {
+  display: inline-block;
+  font-size: 20px;
+  border-bottom: 2px solid black;
+  line-height: 1;
+  padding-right: 200px;
+  padding-left: 80px;
+}
