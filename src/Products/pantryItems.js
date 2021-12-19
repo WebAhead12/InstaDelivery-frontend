@@ -99,13 +99,13 @@ const pantryItems = [
   {
     id: "3017",
     imgUrl: "/store/pantry/baking powder.jpg",
-    name: "Baking Powder 4c.",
+    name: "Baking Powder 4pk.",
     price: "7.90",
   },
   {
     id: "3018",
     imgUrl: "/store/pantry/baking soda.jpg",
-    name: "Baking Soda 4c.",
+    name: "Baking Soda 4pk.",
     price: "7.90",
   },
   {

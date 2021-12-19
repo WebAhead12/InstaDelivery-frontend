@@ -99,7 +99,7 @@ const freezerItems = [
   {
     id: "5017",
     imgUrl: "/store/frozen foods/potato borekas.jpg",
-    name: "Potato Borekas 4c.",
+    name: "Potato Borekas",
     price: "17.90",
   },
   {

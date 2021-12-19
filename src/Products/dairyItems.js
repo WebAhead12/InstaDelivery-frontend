@@ -20,7 +20,7 @@ const dairyItems = [
   {
     id: "4",
     imgUrl: "/store/dairy/eggs.jpg",
-    name: "Eggs",
+    name: "Eggs (dozen)",
     price: "29.90",
   },
 

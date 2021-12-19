@@ -2,13 +2,13 @@ const bakeryItems = [
   {
     id: "201",
     imgUrl: "/store/bakery/bagels.jpg",
-    name: "Bagels 1c.",
-    price: "1.90",
+    name: "Bagels 4pk.",
+    price: "6.90",
   },
   {
     id: "202",
     imgUrl: "/store/bakery/baguette.jpg",
-    name: "Baguettes 2c.",
+    name: "Baguettes 2pk.",
     price: "2.90",
   },
   {
@@ -20,13 +20,13 @@ const bakeryItems = [
   {
     id: "204",
     imgUrl: "/store/bakery/half baguettes.jpg",
-    name: "Half-baguette 7c.",
+    name: "Half-baguette 7pk.",
     price: "4.90",
   },
   {
     id: "205",
     imgUrl: "/store/bakery/burger buns.png",
-    name: "Burger Buns 4c.",
+    name: "Burger Buns 4pk.",
     price: "9.90",
   },
   {
@@ -50,7 +50,7 @@ const bakeryItems = [
   {
     id: "209",
     imgUrl: "/store/bakery/chocolate croissant.jpg",
-    name: "Choc. Croissant",
+    name: "Choc. Croissant 1c.",
     price: "1.90",
   },
 ];

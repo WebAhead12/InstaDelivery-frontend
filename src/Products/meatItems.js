@@ -8,7 +8,7 @@ const meatItems = [
   {
     id: "402",
     imgUrl: "/store/meat/burgers.jpg",
-    name: "Burgers 4c.",
+    name: "Burgers 4pk.",
     price: "29.90",
   },
   {
@@ -20,7 +20,7 @@ const meatItems = [
   {
     id: "404",
     imgUrl: "/store/meat/drumsticks.jpg",
-    name: "Drumsticks 8c.",
+    name: "Drumsticks 8pk.",
     price: "29.90",
   },
   {

@@ -2,7 +2,7 @@ const beverageItems = [
   {
     id: "601",
     imgUrl: "/store/beverage/6 pack 1 15 water.jpg",
-    name: "1.5 L. Water 6c.",
+    name: "1.5 L. Water 6pk.",
     price: "19.90",
   },
   {
@@ -63,7 +63,7 @@ const beverageItems = [
   {
     id: "6016",
     imgUrl: "/store/beverage/fuze tea.jpg",
-    name: "Fuze Tea",
+    name: "Fuze Tea 1.5L",
     price: "8.90",
   },
   {
@@ -111,13 +111,13 @@ const beverageItems = [
   {
     id: "6019",
     imgUrl: "/store/beverage/dr pepper cherry vanilla.jpg",
-    name: "Van. Cherry Dr. Pepper",
+    name: "Van. Cherry D.Pepper",
     price: "6.90",
   },
   {
     id: "6020",
     imgUrl: "/store/beverage/blu.jpg",
-    name: "Blue",
+    name: "Blu",
     price: "4.90",
   },
 ];
