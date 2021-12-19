@@ -1,17 +1,11 @@
-/* .categoryWrapper {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-} */
+.categoryWrapper {
+  width: 100%;
+}
 
 .categoryBar {
   display: flex;
   justify-content: center;
-  flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 10px;
 }
 
 a {

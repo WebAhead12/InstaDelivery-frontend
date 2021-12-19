@@ -33,7 +33,7 @@ function Home() {
       setBadgeCount(badgeCount + 1);
     }
   };
-
+  //pass the function to Item inorder to update state when item added
   const updateItem = (itemObj) => {
     setItem({ ...itemObj });
   };

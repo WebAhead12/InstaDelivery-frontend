@@ -66,7 +66,7 @@ function Cart(props) {
   return (
     <div className={style.cart}>
       <div className={style.cartIcon}>
-        <Badge size="small" count={props.count}>
+        <Badge size="small" count={props.count} style={{ marginTop: "3px" }}>
           <img
             src="/icons/shopping-cart.png"
             alt="shopping cart"
@@ -111,7 +111,7 @@ function Cart(props) {
                 background: "#8EE57E",
                 color: "black",
                 borderColor: "#B1DDA9",
-                marginLeft: "20px",
+                marginLeft: "80px",
               }}
             >
               Check-out
