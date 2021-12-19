@@ -6,7 +6,7 @@ function Beverage(props) {
   return (
     <div className={style.beverage}>
       <div className={style.titlebeverage}>
-        <p id="beverage">Beverage Products</p>
+        <p id="beverage">Beverages</p>
       </div>
 
       <div className={style.items}>

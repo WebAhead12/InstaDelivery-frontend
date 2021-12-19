@@ -49,12 +49,14 @@ function Home() {
         <Categories />
         <Search />
       </div>
-      <Dairy clickAdd={itemsCounter} updateItem={updateItem} />
-      <Bakery clickAdd={itemsCounter} updateItem={updateItem} />
-      <Meat clickAdd={itemsCounter} updateItem={updateItem} />
-      <Pantry clickAdd={itemsCounter} updateItem={updateItem} />
-      <Freezer clickAdd={itemsCounter} updateItem={updateItem} />
-      <Beverage clickAdd={itemsCounter} updateItem={updateItem} />
+      <div className={style.products}>
+        <Dairy clickAdd={itemsCounter} updateItem={updateItem} />
+        <Bakery clickAdd={itemsCounter} updateItem={updateItem} />
+        <Meat clickAdd={itemsCounter} updateItem={updateItem} />
+        <Pantry clickAdd={itemsCounter} updateItem={updateItem} />
+        <Freezer clickAdd={itemsCounter} updateItem={updateItem} />
+        <Beverage clickAdd={itemsCounter} updateItem={updateItem} />
+      </div>
     </div>
   );
 }

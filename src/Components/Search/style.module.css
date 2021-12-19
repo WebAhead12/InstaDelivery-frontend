@@ -1,16 +1,24 @@
-.search {
+/* .search {
   margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
 }
+
 .searchInput {
-  background-color: #d8d2fa;
+  background-color: #d8d2fa !important;
   border: 1px solid black;
+  border-bottom: 1px solid black !important;
   box-shadow: 0px 0.5px 1px black;
   border-radius: 5px;
-  margin-right: 25px;
-  width: 227px;
+  margin-right: 50px;
+  width: 200px;
   height: 32px;
 }
 
 input:focus {
   /* doesn't work yet */
-}
+/* }
+
+search input {
+  background-color: #d8d2fa !important;
+} */ */

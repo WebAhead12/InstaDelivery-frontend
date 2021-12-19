@@ -6,7 +6,7 @@ function Freezer(props) {
   return (
     <div className={style.freezer}>
       <div className={style.titlefreezer}>
-        <p id="freezer">Freezer Products</p>
+        <p id="freezer">Frozen Items</p>
       </div>
 
       <div className={style.items}>
