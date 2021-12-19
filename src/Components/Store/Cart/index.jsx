@@ -26,6 +26,15 @@ function Cart(props) {
     setItems([...newStateOfItems]);
   };
 
+  //calculate total price
+  const totalPrice = () => {
+    let sum = 0;
+    for (let item of items) {
+      sum += item.price * item.quantity;
+    }
+    return sum.toFixed(2);
+  };
+
   useEffect(() => {
     //check if an item is already clicked and exits in items.
     const index = findIdx(items, props.item);
@@ -79,9 +88,8 @@ function Cart(props) {
           {items &&
             items.map((item, idx) => {
               return (
-                <div className={style.itemsMap}>
+                <div className={style.itemsMap} key={idx}>
                   <Item
-                    key={idx}
                     id={item.id}
                     imgUrl={item.imgUrl}
                     name={item.name}
@@ -96,7 +104,18 @@ function Cart(props) {
               );
             })}
           <div className={style.checkOut}>
-            <Button type="primary">Check-out</Button>
+            Total: {totalPrice()}
+            <Button
+              type="primary"
+              style={{
+                background: "#8EE57E",
+                color: "black",
+                borderColor: "#B1DDA9",
+                marginLeft: "20px",
+              }}
+            >
+              Check-out
+            </Button>
           </div>
         </Drawer>
       </div>
