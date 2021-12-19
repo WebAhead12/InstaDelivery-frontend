@@ -2,8 +2,8 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
-}
-
+} */
+/* 
 .searchInput {
   background-color: #d8d2fa !important;
   border: 1px solid black;
@@ -13,12 +13,15 @@
   margin-right: 50px;
   width: 200px;
   height: 32px;
-}
+} */
+.search input {
+  background-color: #2712a1 !important;
+} 
 
 input:focus {
   /* doesn't work yet */
 /* }
 
-search input {
-  background-color: #d8d2fa !important;
-} */ */
+
+
+
