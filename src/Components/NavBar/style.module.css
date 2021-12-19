@@ -1,6 +1,5 @@
 .navBar {
   display: flex;
   justify-content: space-between;
-  margin-top: 7px;
   border-radius: 32px;
 }
