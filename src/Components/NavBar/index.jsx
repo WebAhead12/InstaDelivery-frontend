@@ -13,7 +13,12 @@ function NavBar(props) {
         <div className={style.button}>
           <Button
             type="primary"
-            style={{ background: "black", borderColor: "#ccc", color: "white" }}
+            style={{
+              background: "black",
+              borderColor: "#ccc",
+              color: "white",
+              height: "56px",
+            }}
             onClick={() => toGo("/lobby")}
           >
             Logout
