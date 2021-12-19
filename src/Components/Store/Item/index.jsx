@@ -13,11 +13,6 @@ function Item(props) {
         <Button
           type="primary"
           size="small"
-          value={{
-            imgUrl: props.imgUrl,
-            name: props.name,
-            price: props.price,
-          }}
           onClick={(e) => {
             props.clickAdd("increase");
             props.updateItem({
