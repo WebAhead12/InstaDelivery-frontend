@@ -2,16 +2,23 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import style from "./style.module.css";
+import { Radio, Form, Button } from "antd";
+import CreditCard from "./CreditCard";
 
 function Checkout(props) {
   const goTo = useNavigate();
+
+  const [howToPay, setHowToPay] = useState(false);
+
   const [checkoutData, setCheckoutData] = useState({
     name: "",
     address: "",
     region: "",
     zipCode: "",
     phoneNumber: "",
+    paymentMethod: "",
   });
+
   const onChange =
     (stateKey) =>
     ({ target }) =>
@@ -21,8 +28,9 @@ function Checkout(props) {
     event.preventDefault();
     goTo("/checkout");
   };
+
   return (
-    <form onSubmit={onSubmit} className={style.checkout}>
+    <Form onSubmit={onSubmit} className={style.checkout}>
       <div className={style.shippingAddress}>
         <div className={style.shippingTitle}>
           <p>
@@ -38,7 +46,7 @@ function Checkout(props) {
             id="fullName"
             type="text"
             className={style.fullNameInput}
-            onChange={checkoutData.fullName}
+            onChange={onChange("fullName")}
             required
           />
         </div>
@@ -51,7 +59,7 @@ function Checkout(props) {
             id="address"
             type="text"
             className={style.addressInput}
-            onChange={checkoutData.address}
+            onChange={onChange("address")}
             required
           />
         </div>
@@ -65,7 +73,7 @@ function Checkout(props) {
             id="region"
             type="text"
             className={style.regionInput}
-            onChange={checkoutData.region}
+            onChange={onChange("region")}
             required
           />
         </div>
@@ -79,7 +87,7 @@ function Checkout(props) {
             id="zipCode"
             type="text"
             className={style.zipCodeInput}
-            onChange={checkoutData.zipCode}
+            onChange={onChange("zipCode")}
             required
           />
         </div>
@@ -93,7 +101,7 @@ function Checkout(props) {
             id="email"
             type="email"
             className={style.emailInput}
-            onChange={checkoutData.email}
+            onChange={onChange("email")}
             required
           />
         </div>
@@ -107,12 +115,30 @@ function Checkout(props) {
             id="phoneNumber"
             type="tel"
             className={style.phoneNumberInput}
-            onChange={checkoutData.phoneNumber}
+            onChange={onChange("phoneNumber")}
             required
           />
         </div>
+        <br />
+
+        <div className={style.radioBtn}></div>
+        <Form.Item name="radio-group" label="Payment Method: " initialValue={2}>
+          <Radio.Group
+            onChange={() => {
+              setHowToPay(!howToPay);
+            }}
+            value={checkoutData.paymentMethod}
+          >
+            <Radio value={1}>Cash</Radio>
+            <Radio value={2}>Credit Card</Radio>
+          </Radio.Group>
+        </Form.Item>
       </div>
-    </form>
+
+      {!howToPay ? <CreditCard onChange={onChange} /> : null}
+
+      <Button className={style.placeOrder}>Place Order</Button>
+    </Form>
   );
 }
 

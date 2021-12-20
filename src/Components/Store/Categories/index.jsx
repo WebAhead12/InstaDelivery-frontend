@@ -1,17 +1,27 @@
 import React from "react";
 import style from "./style.module.css";
 
+export const categories = [
+  "Dairy",
+  "Bakery",
+  "Pantry",
+  "Meat",
+  "Freezer",
+  "Beverages",
+  // "Household",
+];
+
 function Categories() {
   return (
     <div className={style.categoryWrapper}>
       <div className={style.categoryBar}>
-        <a href="#scrollDairy">Dairy</a>
-        <a href="#bakery">Bakery</a>
-        <a href="#pantry">Pantry</a>
-        <a href="#meat">Meat</a>
-        <a href="#freezer">Freezer</a>
-        <a href="#beverage">Beverages</a>
-        <a href="#household">Household</a>
+        {categories.map((category, idx) => {
+          return (
+            <a key={idx} href={"#" + category.toLowerCase()}>
+              {category}
+            </a>
+          );
+        })}
       </div>
     </div>
   );
