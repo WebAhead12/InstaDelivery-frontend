@@ -6,9 +6,6 @@ function Dairy(props) {
   return (
     <div className={style.dairy}>
       <div className={style.titleDairy}>
-        <div className={style.dairyTarget}>
-          <span className="anchorDairy" id="scrollDairy"></span>
-        </div>
         <p id="dairy">Dairy</p>
       </div>
 

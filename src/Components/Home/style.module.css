@@ -10,5 +10,8 @@
 }
 
 .products {
-  margin-top: 130px;
+  max-height: 640px;
+  overscroll-behavior-y: contain;
+  position: relative;
+  overflow: auto;
 }

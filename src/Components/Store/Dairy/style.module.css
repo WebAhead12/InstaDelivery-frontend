@@ -3,6 +3,9 @@
   justify-content: left;
   flex-wrap: wrap;
   margin: 15px;
+  /* margin-top: 230px;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: 100px; */
 }
 .productDetails {
   display: flex;
@@ -22,4 +25,11 @@ p {
   line-height: 1;
   padding-right: 200px;
   padding-left: 80px;
+}
+
+.anchorDairy {
+  display: flex;
+
+  margin-top: 230px;
+  visibility: visible;
 }
