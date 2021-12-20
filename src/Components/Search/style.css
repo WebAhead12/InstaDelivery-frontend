@@ -7,6 +7,7 @@
   width: 220px;
   height: 32px;
 }
+
 .ant-select-selector:focus {
   outline: none;
   border: none;
