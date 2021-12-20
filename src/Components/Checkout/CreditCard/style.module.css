@@ -1,0 +1,24 @@
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+input {
+  width: 90%;
+  height: 36px;
+  background-color: #d3d1d1;
+  border-radius: 6px;
+  border: none;
+  padding-right: 10px;
+}
+
+/* In case we want to go exactly like figma, then delete this entirely */
+.expiration input,
+.securityCode input {
+  width: 15%;
+  display: flex;
+  margin-left: 25px;
+}

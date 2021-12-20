@@ -4,3 +4,10 @@
   border: 1px solid black;
   height: 56px;
 }
+
+.button Button {
+  background: black;
+  border-color: #ccc;
+  color: white;
+  height: 56px;
+}

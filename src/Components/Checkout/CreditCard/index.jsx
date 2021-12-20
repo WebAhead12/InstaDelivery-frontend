@@ -5,7 +5,7 @@ function CreditCard(props) {
     <div className={style.creditCard}>
       <br />
       <div className={style.cardNumber}>
-        <label htmlFor="cardNumber" className={style.cardNumber}>
+        <label htmlFor="cardNumber" className={style.cardNumberLabel}>
           Card Number
         </label>
 
@@ -19,7 +19,7 @@ function CreditCard(props) {
       </div>
       <br />
       <div className={style.expiration}>
-        <label htmlFor="expiration" className={style.expiration}>
+        <label htmlFor="expiration" className={style.expirationLabel}>
           Expiration
         </label>
 
@@ -34,7 +34,7 @@ function CreditCard(props) {
 
       <br />
       <div className={style.securityCode}>
-        <label htmlFor="securityCode" className={style.securityCode}>
+        <label htmlFor="securityCode" className={style.securityCodeLabel}>
           Security Code
         </label>
 

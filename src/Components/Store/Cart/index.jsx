@@ -2,11 +2,12 @@ import style from "./style.module.css";
 import React, { useEffect, useState } from "react";
 import { Drawer, Button, Badge } from "antd";
 import Item from "./CartItem";
+// import { useNavigate } from "react";
 import { findIdx } from "../../../utils/functions";
 
 function Cart(props) {
   const [visible, setVisible] = useState(false);
-
+  // const goTo = useNavigate();
   //array of items being added to cart.
   const [items, setItems] = useState([]);
 
@@ -117,6 +118,7 @@ function Cart(props) {
                 borderColor: "#B1DDA9",
                 marginLeft: "80px",
               }}
+              // onClick={() => goTo("/checkout")}
             >
               Check-out
             </Button>

@@ -2,37 +2,39 @@
   padding-bottom: 20px;
 }
 
-.shippingAddress {
+label {
   display: flex;
-  margin-top: 10px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 5px auto;
+  align-items: flex-start;
 }
 
 input {
-  width: 307px;
+  width: 90%;
   height: 36px;
-  background-color: #c4c4c4;
+  background-color: #d3d1d1;
   border-radius: 6px;
   border: none;
+  padding-right: 10px;
 }
 
-.shippingTitle p {
-  border: none;
+.paymentMethodTitle label {
+  margin-left: 100px;
+}
+
+.paymentMethods {
   display: flex;
-  margin-top: 10px;
-
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
-.fullName {
-  margin-top: -5px;
+.placeOrder {
+  background-color: #ffea9f;
+  font-size: 18px;
+  height: max-content;
 }
 
-label {
+h5 {
   display: flex;
-  line-height: 20px;
+  margin-left: 10px;
+  font-size: 20px;
 }

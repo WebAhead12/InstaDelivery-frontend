@@ -35,21 +35,27 @@ function NavBar(props) {
   } else {
     return (
       <div className={style.navBar}>
-        <Button
-          type="primary"
-          style={{ background: "black", borderColor: "#ccc", color: "white" }}
-          onClick={() => toGo("/lobby")}
-        >
-          Logout
-        </Button>
-        <Central />
-        <Button
-          type="primary"
-          style={{ background: "black", borderColor: "#ccc", color: "white" }}
-          onClick={() => toGo("/home")}
-        >
-          Home
-        </Button>
+        <div className={style.button}>
+          <Button
+            type="primary"
+            style={{ background: "black", borderColor: "#ccc", color: "white" }}
+            onClick={() => toGo("/lobby")}
+          >
+            Logout
+          </Button>
+        </div>
+        <div className={style.checkoutLogo}>
+          <Central />
+        </div>
+        <div className={style.button}>
+          <Button
+            type="primary"
+            style={{ background: "black", borderColor: "#ccc", color: "white" }}
+            onClick={() => toGo("/home")}
+          >
+            Home
+          </Button>
+        </div>
       </div>
     );
   }

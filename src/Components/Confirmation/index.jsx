@@ -1,14 +1,17 @@
 import React from "react";
 import style from "./style.module.css";
+import NavBar from "../NavBar";
 function Confirmation() {
   return (
     <div className={style.confirmation}>
-      <h4>Your order has been placed successfully!</h4>
-      <h3>Thank you for shopping with InstaDelivery</h3>
-      <p className={style.pTag}>
+      <NavBar buttonValue="Home" />
+
+      <h4>Thank you for shopping with InstaDelivery</h4>
+      <h3> Your order has been placed successfully!</h3>
+      <h4>
         You will receive an email shortly with a summary of your order. See you
         in a bit!
-      </p>
+      </h4>
     </div>
   );
 }
