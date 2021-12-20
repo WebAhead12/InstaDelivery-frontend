@@ -30,7 +30,7 @@ const Complete = (props) => (
       width: 200,
     }}
     options={options}
-    placeholder="try to type `b`"
+    placeholder="Search for a product here..."
     filterOption={(inputValue, option) =>
       option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
     }
@@ -49,7 +49,7 @@ function Search(props) {
         toggleTheSearchState={props.doSearch}
       ></Complete>
 
-      <Button
+      {/* <Button
         style={{
           background: "#b1dda9",
           color: "black",
@@ -58,7 +58,7 @@ function Search(props) {
         }}
       >
         Search
-      </Button>
+      </Button> */}
     </div>
   );
 }
