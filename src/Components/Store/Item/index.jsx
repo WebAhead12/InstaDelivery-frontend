@@ -20,6 +20,7 @@ function Item(props) {
               imgUrl: props.imgUrl,
               name: props.name,
               price: props.price,
+              isSearched: false,
             });
           }}
         >

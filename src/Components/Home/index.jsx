@@ -15,15 +15,16 @@ import Item from "../Store/Item";
 function Home() {
   //number of item added to cart
   const [badgeCount, setBadgeCount] = useState(0);
+  //toggled when a search occurs.
+  const [searchInAction, setSearchInAction] = useState(false);
   //the last clicked item
   const [item, setItem] = useState({
     id: "",
     imgUrl: "",
     name: "",
     price: "",
+    isSearched: false,
   });
-  //toggled when a search occurs.
-  const [searchInAction, setSearchInAction] = useState(false);
   //pass the function to Item inorder to update state when item added
   const itemsCounter = (op = "increase", leap = 0) => {
     if (op === "decrease") {
@@ -49,9 +50,9 @@ function Home() {
       <div className={style.header}>
         <NavBar
           buttonValue="Logout"
-          count={badgeCount}
-          addItemToCart={item}
-          clickOnPlusMinus={itemsCounter}
+          count={badgeCount} //to Badge
+          addItemToCart={item} //to Cart component
+          clickOnPlusMinus={itemsCounter} //to CartItem component
         />
         <Categories />
         <Search updateItem={updateItem} doSearch={toggleSearchState} />
