@@ -35,8 +35,9 @@ const Complete = (props) => (
       option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
     }
     onChange={(selected) => {
-      props.updateItem(findProduct(selected));
       props.toggleTheSearchState();
+      const item = { ...findProduct(selected), isSearched: true };
+      props.updateItem(item);
     }}
   />
 );

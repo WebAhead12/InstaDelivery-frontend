@@ -3,10 +3,13 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import style from "./style.module.css";
-import { Radio, Form } from "antd";
+import { Radio, Form, Button } from "antd";
+import CreditCard from "./CreditCard";
 
 function Checkout(props) {
   const goTo = useNavigate();
+
+  const [howToPay, setHowToPay] = useState(false);
 
   const [checkoutData, setCheckoutData] = useState({
     name: "",
@@ -120,9 +123,11 @@ function Checkout(props) {
         <br />
 
         <div className={style.radioBtn}></div>
-        <Form.Item name="radio-group" label="Payment Method: ">
+        <Form.Item name="radio-group" label="Payment Method: " initialValue={2}>
           <Radio.Group
-            onChange={onChange("paymentMethod")}
+            onChange={() => {
+              setHowToPay(!howToPay);
+            }}
             value={checkoutData.paymentMethod}
           >
             <Radio value={1}>Cash</Radio>
@@ -130,51 +135,10 @@ function Checkout(props) {
           </Radio.Group>
         </Form.Item>
       </div>
-      <br />
-      <div className={style.cardNumber}>
-        <label htmlFor="cardNumber" className={style.cardNumber}>
-          Card Number
-        </label>
 
-        <input
-          id="cardNumber"
-          type="number"
-          className={style.cardNumberInput}
-          onChange={onChange("cardNumber")}
-          required
-        />
-      </div>
-      <br />
-      <div className={style.expiration}>
-        <label htmlFor="expiration" className={style.expiration}>
-          Expiration
-        </label>
+      {!howToPay ? <CreditCard onChange={onChange} /> : null}
 
-        <input
-          id="expiration"
-          type="number"
-          className={style.expirationInput}
-          onChange={onChange("expiration")}
-          required
-        />
-      </div>
-
-      <br />
-      <div className={style.securityCode}>
-        <label htmlFor="securityCode" className={style.securityCode}>
-          Security Code
-        </label>
-
-        <input
-          id="securityCode"
-          type="number"
-          className={style.securityCodeInput}
-          onChange={onChange("securityCode")}
-          required
-        />
-      </div>
-      <br />
-      <button className="placeOrder">Place Order</button>
+      <Button className={style.placeOrder}>Place Order</Button>
     </Form>
   );
 }

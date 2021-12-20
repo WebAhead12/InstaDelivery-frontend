@@ -9,11 +9,3 @@
   padding-bottom: 3px;
   /* display: none; */
 }
-
-.products {
-  margin-top: 10px;
-  max-height: 450px;
-  overscroll-behavior-y: contain;
-  position: fixed;
-  overflow: scroll;
-}

@@ -1,0 +1,28 @@
+.store {
+  margin-top: 10px;
+  max-height: 450px;
+  overscroll-behavior-y: contain;
+  position: fixed;
+  overflow: scroll;
+}
+
+.category {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin: 15px;
+}
+
+.items {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+p {
+  display: inline-block;
+  font-size: 20px;
+  border-bottom: 2px solid black;
+  line-height: 1;
+  padding-right: 200px;
+  padding-left: 80px;
+}

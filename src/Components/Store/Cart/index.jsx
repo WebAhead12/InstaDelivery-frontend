@@ -36,6 +36,10 @@ function Cart(props) {
   };
 
   useEffect(() => {
+    //if the item is coming due to a search process, kill this process and don't update anything in cart.
+    if (props.item.isSearched) {
+      return;
+    }
     //check if an item is already clicked and exits in items.
     const index = findIdx(items, props.item);
 
