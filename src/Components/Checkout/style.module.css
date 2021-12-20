@@ -1,3 +1,7 @@
+.checkout {
+  padding-bottom: 20px;
+}
+
 .shippingAddress {
   display: flex;
   margin-top: 10px;
