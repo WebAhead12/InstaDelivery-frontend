@@ -1,7 +1,9 @@
 import React from "react";
+
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import style from "./style.module.css";
+import { Radio } from "antd";
 
 function Checkout(props) {
   const goTo = useNavigate();
@@ -12,6 +14,7 @@ function Checkout(props) {
     zipCode: "",
     phoneNumber: "",
   });
+
   const onChange =
     (stateKey) =>
     ({ target }) =>
@@ -21,6 +24,7 @@ function Checkout(props) {
     event.preventDefault();
     goTo("/checkout");
   };
+
   return (
     <form onSubmit={onSubmit} className={style.checkout}>
       <div className={style.shippingAddress}>
@@ -111,6 +115,9 @@ function Checkout(props) {
             required
           />
         </div>
+        <br />
+
+        <div className={style.radioBtn}></div>
       </div>
     </form>
   );

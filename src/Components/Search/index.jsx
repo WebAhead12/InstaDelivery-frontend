@@ -1,6 +1,6 @@
 // import style from "./style.module.css";
 import "./style.css";
-import { Button } from "antd";
+// import { Button } from "antd";
 import React from "react";
 import "antd/dist/antd.css";
 import { AutoComplete } from "antd";
@@ -49,7 +49,7 @@ function Search(props) {
         toggleTheSearchState={props.doSearch}
       ></Complete>
 
-      <Button
+      {/* <Button
         style={{
           background: "#b1dda9",
           color: "black",
@@ -58,7 +58,7 @@ function Search(props) {
         }}
       >
         Search
-      </Button>
+      </Button> */}
     </div>
   );
 }
