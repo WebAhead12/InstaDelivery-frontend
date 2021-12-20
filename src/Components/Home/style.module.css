@@ -7,11 +7,13 @@
   background-color: white;
   border-bottom: 1px solid black;
   padding-bottom: 3px;
+  /* display: none; */
 }
 
 .products {
-  max-height: 640px;
+  margin-top: 10px;
+  max-height: 450px;
   overscroll-behavior-y: contain;
-  position: relative;
-  overflow: auto;
+  position: fixed;
+  overflow: scroll;
 }

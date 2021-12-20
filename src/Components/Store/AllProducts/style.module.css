@@ -1,11 +1,9 @@
-.dairy {
+.container {
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
   margin: 15px;
-  /* margin-top: 230px;
-  scroll-behavior: smooth;
-  overscroll-behavior-x: 100px; */
+  /* margin-top: 50px; */
 }
 .productDetails {
   display: flex;
@@ -19,17 +17,11 @@
   flex-wrap: wrap;
 }
 p {
-  display: inline-block;
+  display: flex;
   font-size: 20px;
   border-bottom: 2px solid black;
   line-height: 1;
   padding-right: 200px;
   padding-left: 80px;
-}
-
-.anchorDairy {
-  display: flex;
-
-  margin-top: 230px;
-  visibility: visible;
+  width: max-content;
 }

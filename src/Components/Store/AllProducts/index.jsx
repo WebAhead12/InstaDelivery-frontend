@@ -1,16 +1,15 @@
 import Item from "../Item";
-import bakeryItems from "../../../Products/bakeryItems";
 import style from "./style.module.css";
 
-function Bakery(props) {
+function AllProducts(props) {
   return (
-    <div className={style.bakery}>
-      <div className={style.titlebakery}>
-        <p id="bakery">Bakery</p>
+    <div className={style.container}>
+      <div className={style.title}>
+        <p id={props.id}>{props.title}</p>
       </div>
 
       <div className={style.items}>
-        {bakeryItems.map((item, idx) => {
+        {props.data.map((item, idx) => {
           return (
             <Item
               key={idx}
@@ -28,4 +27,4 @@ function Bakery(props) {
   );
 }
 
-export default Bakery;
+export default AllProducts;

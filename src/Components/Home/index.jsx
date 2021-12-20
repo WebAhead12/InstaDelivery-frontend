@@ -1,16 +1,17 @@
 // import style from "./style.module.css";
 import NavBar from "../NavBar";
 import Categories from "../Store/Categories";
-import Dairy from "../Store/Dairy";
-import Bakery from "../Store/Bakery";
+import AllProducts from "../Store/AllProducts";
 import Search from "../Search";
 import { useState } from "react";
 import style from "./style.module.css";
-import Meat from "../Store/Meat";
-import Pantry from "../Store/Pantry";
-import Freezer from "../Store/Freezer";
-import Beverage from "../Store/Beverage";
 import Item from "../Store/Item";
+import bakeryItems from "../../Products/bakeryItems";
+import dairyItems from "../../Products/dairyItems";
+import freezerItems from "../../Products/freezerItems";
+import meatItems from "../../Products/meatItems";
+import pantryItems from "../../Products/pantryItems";
+import beverageItems from "../../Products/beverageItems";
 
 function Home() {
   //number of item added to cart
@@ -58,12 +59,48 @@ function Home() {
       </div>
       {!searchInAction ? (
         <div className={style.products}>
-          <Dairy clickAdd={itemsCounter} updateItem={updateItem} />
-          <Bakery clickAdd={itemsCounter} updateItem={updateItem} />
-          <Meat clickAdd={itemsCounter} updateItem={updateItem} />
-          <Pantry clickAdd={itemsCounter} updateItem={updateItem} />
-          <Freezer clickAdd={itemsCounter} updateItem={updateItem} />
-          <Beverage clickAdd={itemsCounter} updateItem={updateItem} />
+          <AllProducts
+            clickAdd={itemsCounter}
+            updateItem={updateItem}
+            data={dairyItems}
+            title="Dairy"
+            id="dairy"
+          />
+          <AllProducts
+            clickAdd={itemsCounter}
+            updateItem={updateItem}
+            data={bakeryItems}
+            title="Bakery"
+            id="bakery"
+          />
+          <AllProducts
+            clickAdd={itemsCounter}
+            updateItem={updateItem}
+            data={meatItems}
+            title="Meat Products"
+            id="meat"
+          />
+          <AllProducts
+            clickAdd={itemsCounter}
+            updateItem={updateItem}
+            data={pantryItems}
+            title="Pantry"
+            id="pantry"
+          />
+          <AllProducts
+            clickAdd={itemsCounter}
+            updateItem={updateItem}
+            data={freezerItems}
+            title="Freezer"
+            id="freezer"
+          />
+          <AllProducts
+            clickAdd={itemsCounter}
+            updateItem={updateItem}
+            data={beverageItems}
+            title="Beverages"
+            id="beverage"
+          />
         </div>
       ) : (
         <Item
