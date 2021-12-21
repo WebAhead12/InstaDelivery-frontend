@@ -20,7 +20,7 @@ function Item(props) {
               imgUrl: props.imgUrl,
               name: props.name,
               price: props.price,
-              isSearched: false,
+              searchState: false, //let updateItem(this) update the searchState to false
             });
           }}
         >

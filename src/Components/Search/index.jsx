@@ -35,10 +35,18 @@ const Complete = (props) => (
     filterOption={(inputValue, option) =>
       option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
     }
-    onChange={(selected) => {
-      props.toggleTheSearchState();
-      const item = { ...findProduct(selected), isSearched: true };
-      props.updateItem(item);
+    onChange={(searchWord) => {
+      let item = { ...findProduct(searchWord) };
+      if (!searchWord) {
+        props.toggleTheSearchState();
+        return;
+      } else if (!item.name) {
+        return;
+      } else {
+        props.toggleTheSearchState();
+        item = { ...item, isSearched: true };
+        props.updateItem(item);
+      }
     }}
   />
 );
@@ -50,17 +58,6 @@ function Search(props) {
         updateItem={props.updateItem}
         toggleTheSearchState={props.doSearch}
       ></Complete>
-
-      {/* <Button
-        style={{
-          background: "#b1dda9",
-          color: "black",
-          borderColor: "black",
-          borderRadius: "8px",
-        }}
-      >
-        Search
-      </Button> */}
     </div>
   );
 }
