@@ -19,7 +19,10 @@ function NavBar(props) {
               color: "white",
               height: "56px",
             }}
-            onClick={() => toGo("/lobby")}
+            onClick={() => {
+              localStorage.clear();
+              toGo("/lobby");
+            }}
           >
             Logout
           </Button>
