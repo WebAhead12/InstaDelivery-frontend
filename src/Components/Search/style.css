@@ -27,6 +27,11 @@
   border: none;
   color: none;
 }
+
+.ant-select-selection-placeholder {
+  color: rgb(143, 142, 142);
+  text-align: left;
+}
 /* 
 .searchInput {
   background-color: #d8d2fa !important;
