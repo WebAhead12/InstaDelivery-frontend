@@ -7,7 +7,7 @@ import { Button } from "antd";
 //NavBar
 function NavBar(props) {
   const toGo = useNavigate();
-  if (props.buttonValue === "Logout") {
+  if (props.buttonValue === "Logout" || "Login") {
     return (
       <div className={style.navBar}>
         <div className={style.button}>
@@ -24,7 +24,7 @@ function NavBar(props) {
               toGo("/lobby");
             }}
           >
-            Logout
+            {props.buttonValue}
           </Button>
         </div>
         <Central />
