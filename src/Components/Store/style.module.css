@@ -1,6 +1,6 @@
 .store {
   margin-top: 10px;
-  max-height: 900px;
+  max-height: 700px;
   overscroll-behavior-y: contain;
   position: fixed;
   overflow: scroll;

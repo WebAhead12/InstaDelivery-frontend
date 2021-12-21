@@ -41,6 +41,7 @@ function Checkout(props) {
             <input
               id="fullName"
               type="text"
+              placeholder=" e.g. John Snow"
               className={style.fullNameInput}
               onChange={onChange("fullName")}
               required
@@ -49,11 +50,12 @@ function Checkout(props) {
           <br />
           <div className={style.address}>
             <label htmlFor="name" className={style.addressLabel}>
-              Address
+              Address (House number and street name)
             </label>
             <input
               id="address"
               type="text"
+              placeholder=" e.g. 3372 Winterfell Castle"
               className={style.addressInput}
               onChange={onChange("address")}
               required
@@ -68,6 +70,7 @@ function Checkout(props) {
             <input
               id="region"
               type="text"
+              placeholder=" e.g. North"
               className={style.regionInput}
               onChange={onChange("region")}
               required
@@ -82,6 +85,7 @@ function Checkout(props) {
             <input
               id="zipCode"
               type="text"
+              placeholder=" e.g. 3958200"
               className={style.zipCodeInput}
               onChange={onChange("zipCode")}
               required
@@ -96,6 +100,7 @@ function Checkout(props) {
             <input
               id="email"
               type="email"
+              placeholder=" johnSnow1@gmail.com"
               className={style.emailInput}
               onChange={onChange("email")}
               required
@@ -110,6 +115,7 @@ function Checkout(props) {
             <input
               id="phoneNumber"
               type="tel"
+              placeholder=" e.g. +972 05X-XXX-XXXX"
               className={style.phoneNumberInput}
               onChange={onChange("phoneNumber")}
               required
