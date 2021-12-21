@@ -125,7 +125,7 @@ function Checkout(props) {
             name="radio-group"
             className="paymentMethodTitle"
             label
-            htmlFor="Payment Method:"
+            htmlFor="PaymentMethod"
             initialValue={2}
           >
             <Radio.Group

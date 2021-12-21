@@ -26,6 +26,7 @@ const options = allItems;
 
 const Complete = (props) => (
   <AutoComplete
+    allowClear
     style={{
       width: 200,
     }}
