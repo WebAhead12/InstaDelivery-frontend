@@ -25,7 +25,7 @@ function Store(props) {
                   <Item
                     key={idx}
                     id={item.id}
-                    imgUrl={item.imgUrl}
+                    imgurl={item.imgurl}
                     name={item.name}
                     price={item.price}
                     clickAdd={props.clickAdd}

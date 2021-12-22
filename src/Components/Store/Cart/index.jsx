@@ -4,6 +4,7 @@ import { Drawer, Button, Badge } from "antd";
 import Item from "./CartItem";
 import { useNavigate } from "react-router-dom";
 import { findIdx } from "../../../utils/functions";
+import { addItemsToCart } from "../../../utils/api";
 
 function Cart(props) {
   const [visible, setVisible] = useState(false);
@@ -35,6 +36,24 @@ function Cart(props) {
     }
     return sum.toFixed(2);
   };
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("access_token");
+    if (token) {
+      addItemsToCart(token).then((res) => {
+        let badgeCount = 0;
+        for (let item of res.items) {
+          badgeCount += item.quantity;
+        }
+        props.updateItemsCounter("increase", badgeCount);
+        setItems([...res.items]);
+      });
+    } else {
+      alert("Login Please..");
+      goTo("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     //if the item is coming due to a search process, kill this process and don't update anything in cart.
@@ -96,7 +115,7 @@ function Cart(props) {
                 <div className={style.itemsMap} key={idx}>
                   <Item
                     id={item.id}
-                    imgUrl={item.imgUrl}
+                    imgurl={item.imgurl}
                     name={item.name}
                     price={item.price}
                     item={item}

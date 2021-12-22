@@ -32,3 +32,10 @@ export function register(account) {
     headers: { "content-type": "application/json" },
   });
 }
+
+export function addItemsToCart(token) {
+  return request(process.env.REACT_APP_API_URL + "/user/cart", {
+    method: "GET",
+    headers: { authorization: `Bearer ${token}` },
+  });
+}
