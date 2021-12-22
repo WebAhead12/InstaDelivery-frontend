@@ -7,7 +7,7 @@ import { Button } from "antd";
 //NavBar
 function NavBar(props) {
   const toGo = useNavigate();
-  if (props.buttonValue === "Logout" || "Login") {
+  if (props.buttonValue === "Logout" || props.buttonValue === "Login") {
     return (
       <div className={style.navBar}>
         <div className={style.button}>

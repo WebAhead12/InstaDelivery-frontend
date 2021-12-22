@@ -6,6 +6,8 @@ import { register } from "../../../utils/api";
 
 function Register() {
   const goTo = useNavigate();
+  const [msgError, setMsgError] = useState("An unexpexted error");
+  const [showError, setShowError] = useState(false);
   const [account, setAccount] = useState({
     name: "",
     email: "",
@@ -32,7 +34,11 @@ function Register() {
             window.localStorage.setItem("access_token", res.access_token);
             goTo("/");
           } else {
-            alert(res.error);
+            setMsgError(res.error);
+            setShowError(!showError);
+            setTimeout(() => {
+              setShowError(false);
+            }, 3000);
           }
         })
         .catch((error) => console.error(error));
@@ -108,7 +114,13 @@ function Register() {
           required
         />
       </div>
+
       <br />
+      {showError ? (
+        <div className={style.errorMsg}>
+          <span>{msgError} </span>
+        </div>
+      ) : null}
       <br />
       <div className={style.button}>
         <Button
