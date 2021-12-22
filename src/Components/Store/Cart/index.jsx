@@ -38,7 +38,9 @@ function Cart(props) {
 
   useEffect(() => {
     //if the item is coming due to a search process, kill this process and don't update anything in cart.
-    if (!props.item || props.item.isSearched) {
+
+    //double-check this conflict
+    if (!props.item || props.isSearched) {
       return;
     }
 

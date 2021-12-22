@@ -6,9 +6,13 @@ import { login } from "../../../utils/api";
 
 function Login(props) {
   const goTo = useNavigate();
+  const [msgError, setMsgError] = useState("An unexpexted error");
+  const [showError, setShowError] = useState(false);
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
+    error: null,
   });
 
   const onChange =
@@ -24,7 +28,11 @@ function Login(props) {
           window.localStorage.setItem("access_token", data.access_token);
           goTo("/");
         } else {
-          alert(data.error);
+          setMsgError(data.error);
+          setShowError(!showError);
+          setTimeout(() => {
+            setShowError(false);
+          }, 3000);
         }
       })
       .catch((error) => console.error(error));
@@ -65,6 +73,12 @@ function Login(props) {
         </div>
       </div>
       <br />
+      {showError ? (
+        <div className={style.errorMsg}>
+          <span>{msgError} </span>
+        </div>
+      ) : null}
+
       <br />
       <div className={style.button}>
         <Button

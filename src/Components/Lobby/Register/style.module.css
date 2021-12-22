@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap");
+
 .submit {
   background-color: black;
   color: white;
@@ -10,6 +12,7 @@
   justify-content: center;
   align-items: center;
   transform: scale(1.2);
+  font-family: "Karla", sans-serif;
 }
 
 .nameLabel,
@@ -35,8 +38,14 @@
 .confirmPasswordInput {
   border-radius: 8px;
   width: 200px;
+  padding-left: 10px;
 }
 
 .button {
   transform: scale(1.4);
+}
+
+.errorMsg span {
+  color: red;
+  font-size: 11px;
 }

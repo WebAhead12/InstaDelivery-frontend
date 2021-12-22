@@ -19,7 +19,7 @@ export function login(loginData) {
 }
 
 export function getUser(token) {
-  return request(process.env.REACT_APP_API_URL + "/users/thisUser", {
+  return request(process.env.REACT_APP_API_URL + "/user/thisUser", {
     method: "GET",
     headers: { authorization: `Bearer ${token}` },
   });
