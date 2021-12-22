@@ -7,7 +7,7 @@ import { Button } from "antd";
 //NavBar
 function NavBar(props) {
   const toGo = useNavigate();
-  if (props.buttonValue === "Logout" || "Login") {
+  if (props.buttonValue === "Logout" || props.buttonValue === "Login") {
     return (
       <div className={style.navBar}>
         <div className={style.button}>
@@ -42,7 +42,10 @@ function NavBar(props) {
           <Button
             type="primary"
             style={{ background: "black", borderColor: "#ccc", color: "white" }}
-            onClick={() => toGo("/lobby")}
+            onClick={() => {
+              localStorage.clear();
+              toGo("/lobby");
+            }}
           >
             Logout
           </Button>
@@ -54,7 +57,7 @@ function NavBar(props) {
           <Button
             type="primary"
             style={{ background: "black", borderColor: "#ccc", color: "white" }}
-            onClick={() => toGo("/home")}
+            onClick={() => toGo("/")}
           >
             Home
           </Button>
