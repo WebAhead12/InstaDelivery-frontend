@@ -28,7 +28,7 @@ function Register() {
       //   register(account)
       //   .then((res) => {
       //     if(res.response === "Successful") {
-      //       alert(`Welcome to InstaCart, ${account.userName}.`);
+      //       alert(`Welcome to InstaCart, ${account.name}.`);
       //       history ("/login")
       //     } else {
       //       alert (res.error);
