@@ -32,3 +32,10 @@ export function register(account) {
     headers: { "content-type": "application/json" },
   });
 }
+
+export function category() {
+  return request(process.env.REACT_APP_API_URL + "/store/category", {
+    method: "GET",
+    headers: { "content-type": "application/json" },
+  });
+}

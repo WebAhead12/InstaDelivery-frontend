@@ -582,7 +582,7 @@ const allProducts = [
   {
     id: "6020",
     imgUrl: "/store/beverage/blu.jpg",
-    name: "Blu",
+    name: "XL",
     price: "4.90",
   },
 ];

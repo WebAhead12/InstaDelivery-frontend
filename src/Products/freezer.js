@@ -93,19 +93,19 @@ const freezerItems = [
   {
     id: "5016",
     imgUrl: "/store/frozen foods/cheese borekas.jpg",
-    name: "Cheese Borekas",
+    name: "Cheese Puff Pastry",
     price: "17.90",
   },
   {
     id: "5017",
     imgUrl: "/store/frozen foods/potato borekas.jpg",
-    name: "Potato Borekas",
+    name: "Potato Puff Pastry",
     price: "17.90",
   },
   {
     id: "5018",
     imgUrl: "/store/frozen foods/filo borekas.jpg",
-    name: "Filo Borekas",
+    name: "Filo Puff Pastry",
     price: "17.90",
   },
   {

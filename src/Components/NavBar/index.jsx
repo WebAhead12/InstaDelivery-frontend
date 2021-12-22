@@ -6,6 +6,7 @@ import { Button } from "antd";
 
 //NavBar
 function NavBar(props) {
+  console.log(2, props.addItemToCart);
   const toGo = useNavigate();
   if (props.buttonValue === "Logout" || "Login") {
     return (

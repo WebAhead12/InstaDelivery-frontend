@@ -10,7 +10,7 @@ function Cart(props) {
   const goTo = useNavigate();
   //array of items being added to cart.
   const [items, setItems] = useState([]);
-
+  console.log(props.item);
   //update quantity for a given item.
   const updateItemQuantity = (item) => {
     const index = findIdx(items, item);
@@ -38,9 +38,10 @@ function Cart(props) {
 
   useEffect(() => {
     //if the item is coming due to a search process, kill this process and don't update anything in cart.
-    if (props.item.isSearched) {
+    if (!props.item || props.item.isSearched) {
       return;
     }
+
     //check if an item is already clicked and exits in items.
     const index = findIdx(items, props.item);
 

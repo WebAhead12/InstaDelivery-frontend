@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect} from "react";
+
 import style from "./style.module.css";
+import { category } from "../../../utils/api";
 
 export const categories = [
   "Dairy",
@@ -11,7 +13,13 @@ export const categories = [
   // "Household",
 ];
 
-function Categories() {
+function Category() {
+  useEffect(()=> {
+    category()
+    .then(res=> {
+      console.log(res)
+    }) 
+  }, [])
   return (
     <div className={style.categoryWrapper}>
       <div className={style.categoryBar}>
@@ -27,4 +35,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default Category;
