@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 import { useState } from "react";
 import { Button } from "antd";
+import { register } from "../../../utils/api";
 
 function Register() {
   const goTo = useNavigate();
@@ -23,22 +24,18 @@ function Register() {
     if (account.password !== account.confirmPassword) {
       alert("Passwords do not match, please try again");
       return;
-
-      // } else {
-      //   register(account)
-      //   .then((res) => {
-      //     if(res.response === "Successful") {
-      //       alert(`Welcome to InstaCart, ${account.name}.`);
-      //       history ("/login")
-      //     } else {
-      //       alert (res.error);
-      //     }
-      //   })
-      //   .catch((error) => console.error(error))
-      // }
-      //   }
     } else {
-      goTo("/");
+      register(account)
+        .then((res) => {
+          if (res.response === "Successful") {
+            alert(`Welcome to InstaCart, ${account.name}.`);
+            window.localStorage.setItem("access_token", res.access_token);
+            goTo("/");
+          } else {
+            alert(res.error);
+          }
+        })
+        .catch((error) => console.error(error));
     }
   };
 

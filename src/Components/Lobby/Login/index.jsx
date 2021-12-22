@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 import { useState } from "react";
 import { Button } from "antd";
+import { login } from "../../../utils/api";
 
 function Login(props) {
   const goTo = useNavigate();
@@ -17,20 +18,17 @@ function Login(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    goTo("/");
+    login(loginData)
+      .then((data) => {
+        if (!data.error.length) {
+          window.localStorage.setItem("access_token", data.access_token);
+          goTo("/");
+        } else {
+          alert(data.error);
+        }
+      })
+      .catch((error) => console.error(error));
   };
-
-  //   loginData(loginData)
-  //     .then((data) => {
-  //       if (!data.error.length) {
-  //         window.localStorage.setItem("access_token", data.access_token);
-  //         history("/");
-  //       } else {
-  //         alert("Email/password incorrect");
-  //       }
-  //     })
-  //     .catch((error) => console.error(error));
-  //
 
   return (
     <form onSubmit={onSubmit} className={style.login}>

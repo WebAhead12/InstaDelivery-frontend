@@ -2,12 +2,13 @@
 import NavBar from "../NavBar";
 import Categories from "../Store/Categories";
 import Search from "../Search";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./style.module.css";
 import Item from "../Store/Item";
 import Store from "../Store";
 
 function Home() {
+  const [rightButtonNavBar, setRightButtonNavBar] = useState("Login");
   //number of item added to cart
   const [badgeCount, setBadgeCount] = useState(0);
   //toggled when a search occurs.
@@ -20,6 +21,18 @@ function Home() {
     price: "",
     isSearched: false,
   });
+
+  //check if user logged in, then set the matching NavBar button.
+  useEffect(() => {
+    const token = window.localStorage.getItem("access_token");
+    if (token) {
+      setRightButtonNavBar("Logout");
+    } else {
+      setRightButtonNavBar("Login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   //pass the function to Item inorder to update state when item added
   const itemsCounter = (op = "increase", leap = 0) => {
     if (op === "decrease") {
@@ -40,11 +53,12 @@ function Home() {
   const toggleSearchState = () => {
     setSearchInAction(!searchInAction);
   };
+
   return (
     <div className="home">
       <div className={style.header}>
         <NavBar
-          buttonValue="Logout"
+          buttonValue={rightButtonNavBar}
           count={badgeCount} //to Badge
           addItemToCart={item} //to Cart component
           clickOnPlusMinus={itemsCounter} //to CartItem component

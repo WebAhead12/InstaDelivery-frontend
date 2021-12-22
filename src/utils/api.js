@@ -11,7 +11,7 @@ function request(url, settings) {
 }
 
 export function login(loginData) {
-  return request(process.env.REACT_APP_API_URL + "/login", {
+  return request(process.env.REACT_APP_API_URL + "/users/login", {
     method: "POST",
     body: JSON.stringify(loginData),
     headers: { "content-type": "application/json" },
@@ -19,7 +19,7 @@ export function login(loginData) {
 }
 
 export function getUser(token) {
-  return request(process.env.REACT_APP_API_URL + "/thisUser", {
+  return request(process.env.REACT_APP_API_URL + "/users/thisUser", {
     method: "GET",
     headers: { authorization: `Bearer ${token}` },
   });
