@@ -42,7 +42,10 @@ function NavBar(props) {
           <Button
             type="primary"
             style={{ background: "black", borderColor: "#ccc", color: "white" }}
-            onClick={() => toGo("/lobby")}
+            onClick={() => {
+              localStorage.clear();
+              toGo("/lobby");
+            }}
           >
             Logout
           </Button>
@@ -54,7 +57,7 @@ function NavBar(props) {
           <Button
             type="primary"
             style={{ background: "black", borderColor: "#ccc", color: "white" }}
-            onClick={() => toGo("/home")}
+            onClick={() => toGo("/")}
           >
             Home
           </Button>
