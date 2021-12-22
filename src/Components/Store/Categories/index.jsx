@@ -13,12 +13,16 @@ export const categories = [
   // "Household",
 ];
 
+//add catch
 function Category() {
   useEffect(()=> {
     category()
     .then(res=> {
       console.log(res)
     }) 
+    .catch ((error)=> {
+      console.error(error);
+    })
   }, [])
   return (
     <div className={style.categoryWrapper}>
