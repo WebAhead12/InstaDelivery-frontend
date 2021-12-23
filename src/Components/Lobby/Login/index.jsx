@@ -4,15 +4,14 @@ import { useState } from "react";
 import { Button } from "antd";
 import { login } from "../../../utils/api";
 
-function Login(props) {
+function Login() {
   const goTo = useNavigate();
-  const [msgError, setMsgError] = useState("An unexpexted error");
+  const [msgError, setMsgError] = useState("An unexpected error");
   const [showError, setShowError] = useState(false);
 
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
-    error: null,
   });
 
   const onChange =

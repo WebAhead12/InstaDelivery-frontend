@@ -6,9 +6,13 @@ import { useEffect, useState } from "react";
 import style from "./style.module.css";
 import Item from "../Store/Item";
 import Store from "../Store";
+import { getUser } from "../../utils/api";
 
 function Home() {
   const [rightButtonNavBar, setRightButtonNavBar] = useState("Login");
+  const [centralText, setCentralText] = useState(
+    "Have everything you need within 1-2 hours!"
+  );
   //number of item added to cart
   const [badgeCount, setBadgeCount] = useState(0);
   //toggled when a search occurs.
@@ -26,9 +30,13 @@ function Home() {
   useEffect(() => {
     const token = window.localStorage.getItem("access_token");
     if (token) {
+      getUser(token)
+        .then((userData) => setCentralText(`Hi, ${userData.name}`))
+        .catch((err) => console.error(err));
       setRightButtonNavBar("Logout");
     } else {
       setRightButtonNavBar("Login");
+      setCentralText("Have everything you need within 1-2 hours!");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -62,6 +70,7 @@ function Home() {
       <div className={style.header}>
         <NavBar
           buttonValue={rightButtonNavBar}
+          centralInput={centralText} //to Central
           count={badgeCount} //to Badge
           addItemToCart={item} //to Cart component
           clickOnPlusMinus={itemsCounter} //to CartItem component

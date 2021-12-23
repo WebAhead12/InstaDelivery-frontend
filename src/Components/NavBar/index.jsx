@@ -27,7 +27,7 @@ function NavBar(props) {
             {props.buttonValue}
           </Button>
         </div>
-        <Central />
+        <Central description={props.centralInput} />
         <Cart
           count={props.count}
           item={props.addItemToCart}

@@ -4,8 +4,10 @@ import { useState } from "react";
 import style from "./style.module.css";
 import { Radio, Form, Button } from "antd";
 import CreditCard from "./CreditCard";
+import { useNavigate } from "react-router-dom";
 
 function Checkout(props) {
+  const goTo = useNavigate();
   const [howToPay, setHowToPay] = useState(false);
   const [checkoutData, setCheckoutData] = useState({
     name: "",
@@ -156,7 +158,7 @@ function Checkout(props) {
 
         <Button
           className={style.placeOrder}
-          // onClick={() => goTo("/confirmation")}
+          onClick={() => goTo("/confirmation")}
         >
           Place Order
         </Button>

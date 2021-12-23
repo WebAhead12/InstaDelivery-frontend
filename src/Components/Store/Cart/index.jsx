@@ -4,7 +4,7 @@ import { Drawer, Button, Badge } from "antd";
 import Item from "./CartItem";
 import { useNavigate } from "react-router-dom";
 import { findIdx } from "../../../utils/functions";
-// import { addItemsToCart } from "../../../utils/api";
+import { addItemsToCart } from "../../../utils/api";
 
 function Cart(props) {
   const [visible, setVisible] = useState(false);
@@ -17,6 +17,7 @@ function Cart(props) {
     const index = findIdx(items, item);
     items[index].quantity = item.quantity;
     setItems([...items]);
+    localStorage.setItem("cartItems", JSON.stringify([...items]));
   };
 
   //remove item from cart, for a given item remove it from the array of items.
@@ -26,6 +27,11 @@ function Cart(props) {
       .slice(0, index)
       .concat(items.slice(index + 1, items.length));
     setItems([...newStateOfItems]);
+    if (!newStateOfItems.length) {
+      localStorage.removeItem("cartItems");
+    } else {
+      localStorage.setItem("cartItems", JSON.stringify([...newStateOfItems]));
+    }
   };
 
   //calculate total price
@@ -37,23 +43,21 @@ function Cart(props) {
     return sum.toFixed(2);
   };
 
-  // useEffect(() => {
-  //   const token = window.localStorage.getItem("access_token");
-  //   if (token) {
-  //     addItemsToCart(token).then((res) => {
-  //       let badgeCount = 0;
-  //       for (let item of res.items) {
-  //         badgeCount += item.quantity;
-  //       }
-  //       props.updateItemsCounter("increase", badgeCount);
-  //       setItems([...res.items]);
-  //     });
-  //   } else {
-  //     alert("Login Please..");
-  //     goTo("/");
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    const retrievedCartItems = localStorage.getItem("cartItems");
+    if (retrievedCartItems) {
+      const cartItems = JSON.parse(retrievedCartItems);
+
+      let badgeCount = 0;
+      for (let item of cartItems) {
+        badgeCount += item.quantity;
+      }
+
+      props.updateItemsCounter("increase", badgeCount);
+      setItems(cartItems);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     //if the item is coming due to a search process, kill this process and don't update anything in cart.
@@ -70,13 +74,17 @@ function Cart(props) {
         //make a new property for item object(props.item) when item pushed to items for the first time.
         props.item.quantity = 1;
         setItems([...items, props.item]);
+        localStorage.setItem(
+          "cartItems",
+          JSON.stringify([...items, props.item])
+        );
       } else {
         //if it is added update the quantity.
         items[index].quantity++;
         setItems([...items]);
+        localStorage.setItem("cartItems", JSON.stringify([...items]));
       }
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.item]);
 
@@ -104,7 +112,7 @@ function Cart(props) {
           headerStyle={{ background: "#ffea9f" }}
           footerStyle={{ background: "#C4C4C4" }}
           className={style.drawer}
-          title="User's Cart"
+          title="Shopping cart"
           placement="right"
           onClose={onClose}
           visible={visible}
@@ -137,7 +145,26 @@ function Cart(props) {
                 borderColor: "#B1DDA9",
                 marginLeft: "80px",
               }}
-              onClick={() => goTo("/checkout")}
+              onClick={() => {
+                const token = localStorage.getItem("access_token");
+                if (!items.length) {
+                  alert("Cart is empty ☹");
+                  setVisible(false);
+                } else if (token) {
+                  addItemsToCart(token, items)
+                    .then(() => {
+                      goTo("/checkout");
+                    })
+                    .catch((err) => {
+                      localStorage.removeItem("access_token");
+                      alert("Timeout, Please sign in again.. | " + err.message);
+                      goTo("/lobby");
+                    });
+                } else {
+                  alert("Login Please..");
+                  goTo("/lobby");
+                }
+              }}
             >
               Check-out
             </Button>

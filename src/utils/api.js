@@ -33,12 +33,6 @@ export function register(account) {
   });
 }
 
-export function addItemsToCart(token) {
-  return request(process.env.REACT_APP_API_URL + "/user/cart", {
-    method: "GET",
-    headers: { authorization: `Bearer ${token}` },
-  });
-}
 export function category() {
   return request(process.env.REACT_APP_API_URL + "/store/category", {
     method: "GET",
@@ -50,5 +44,23 @@ export function getProducts() {
   return request(process.env.REACT_APP_API_URL + "/store/products", {
     method: "GET",
     headers: { "content-type": "application/json" },
+  });
+}
+
+export function addItemsToCart(token, items) {
+  return request(process.env.REACT_APP_API_URL + "/user/cart", {
+    method: "POST",
+    body: JSON.stringify(items),
+    headers: {
+      authorization: `Bearer ${token}`,
+      "content-type": "application/json",
+    },
+  });
+}
+
+export function getCartItems(token) {
+  return request(process.env.REACT_APP_API_URL + "/user/cart", {
+    method: "GET",
+    headers: { authorization: `Bearer ${token}` },
   });
 }
