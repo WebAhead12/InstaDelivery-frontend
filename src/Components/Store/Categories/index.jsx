@@ -1,36 +1,26 @@
-import React, { useEffect} from "react";
-
+import React, { useEffect, useState } from "react";
 import style from "./style.module.css";
 import { category } from "../../../utils/api";
 
-export const categories = [
-  "Dairy",
-  "Bakery",
-  "Pantry",
-  "Meat",
-  "Freezer",
-  "Beverages",
-  // "Household",
-];
-
 //add catch
 function Category() {
-  useEffect(()=> {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
     category()
-    .then(res=> {
-      console.log(res)
-    }) 
-    .catch ((error)=> {
-      console.error(error);
-    })
-  }, [])
+      .then((res) => {
+        setCategories(res.categories);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <div className={style.categoryWrapper}>
       <div className={style.categoryBar}>
-        {categories.map((category, idx) => {
+        {categories.map((storeCategory, idx) => {
           return (
-            <a key={idx} href={"#" + category.toLowerCase()}>
-              {category}
+            <a key={idx} href={"#" + storeCategory.name.toLowerCase()}>
+              {storeCategory.name}
             </a>
           );
         })}

@@ -16,7 +16,7 @@ function Home() {
   //the last clicked item
   const [item, setItem] = useState({
     id: "",
-    imgUrl: "",
+    imgurl: "",
     name: "",
     price: "",
     isSearched: false,
@@ -42,7 +42,11 @@ function Home() {
         setBadgeCount(badgeCount - 1);
       }
     } else {
-      setBadgeCount(badgeCount + 1);
+      if (leap) {
+        setBadgeCount(badgeCount + leap);
+      } else {
+        setBadgeCount(badgeCount + 1);
+      }
     }
   };
   //pass the function to Item inorder to update state when item added
@@ -53,7 +57,6 @@ function Home() {
   const toggleSearchState = () => {
     setSearchInAction(!searchInAction);
   };
-  console.log(3, item);
   return (
     <div className="home">
       <div className={style.header}>
@@ -73,7 +76,7 @@ function Home() {
       ) : (
         <Item
           id={item.id}
-          imgUrl={item.imgUrl}
+          imgurl={item.imgurl}
           name={item.name}
           price={item.price}
           clickAdd={itemsCounter}

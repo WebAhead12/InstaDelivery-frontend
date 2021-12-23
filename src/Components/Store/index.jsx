@@ -1,31 +1,36 @@
-import { categories } from "./Categories";
+import { useState, useEffect } from "react";
+import { getProducts } from "../../utils/api";
 import Item from "./Item";
 import style from "./style.module.css";
-import bakery from "../../Products/bakery";
-import dairy from "../../Products/dairy";
-import freezer from "../../Products/freezer";
-import meat from "../../Products/meat";
-import pantry from "../../Products/pantry";
-import beverage from "../../Products/beverages";
 
 //must have the same order of categories array(imported from Categories component).
-const allProducts = [dairy, bakery, pantry, meat, freezer, beverage];
 
 function Store(props) {
+  //store is array of objects, each object contain: category name(as string), products(array of products).
+  const [store, setStore] = useState([]);
+
+  useEffect(() => {
+    //fetch all the products according to the categories and set it in the store
+    getProducts()
+      .then((res) => setStore(res.store))
+      .catch((error) => {
+        console.error(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className={style.store}>
-      {categories.map((category, idx) => {
+      {store.map((section, idx) => {
         return (
           <div key={idx} className={style.category}>
-            <p id={category.toLowerCase()}>{category}</p>
-
+            <p id={section.category.toLowerCase()}>{section.category}</p>
             <div className={style.items}>
-              {allProducts[idx].map((item, idx) => {
+              {section.products.map((item, idx) => {
                 return (
                   <Item
                     key={idx}
                     id={item.id}
-                    imgUrl={item.imgUrl}
+                    imgurl={item.imgurl}
                     name={item.name}
                     price={item.price}
                     clickAdd={props.clickAdd}

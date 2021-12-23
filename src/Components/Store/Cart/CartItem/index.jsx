@@ -48,7 +48,7 @@ function CartItem(props) {
         />
       </div>
       <div className={style.image}>
-        <img src={props.imgUrl} alt={props.name}></img>
+        <img src={props.imgurl} alt={props.name}></img>
       </div>
       <div className={style.name}>{props.name}</div>
       <div className={style.quantityContainer}>
