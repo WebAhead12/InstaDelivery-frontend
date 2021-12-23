@@ -21,8 +21,13 @@
 .passwordInput {
   width: 200px;
   border-radius: 8px;
+  padding-left: 10px;
 }
 
 .button {
   transform: scale(1.4);
+}
+.errorMsg span {
+  color: red;
+  font-size: 13px;
 }

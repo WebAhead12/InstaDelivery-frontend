@@ -57,7 +57,6 @@ function Home() {
   const toggleSearchState = () => {
     setSearchInAction(!searchInAction);
   };
-
   return (
     <div className="home">
       <div className={style.header}>

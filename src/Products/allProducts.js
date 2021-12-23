@@ -581,8 +581,8 @@ const allProducts = [
   },
   {
     id: "6020",
-    imgurl: "/store/beverage/blu.jpg",
-    name: "Blu",
+    imgUrl: "/store/beverage/blu.jpg",
+    name: "XL",
     price: "4.90",
   },
 ];

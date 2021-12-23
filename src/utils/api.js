@@ -39,3 +39,16 @@ export function addItemsToCart(token) {
     headers: { authorization: `Bearer ${token}` },
   });
 }
+export function category() {
+  return request(process.env.REACT_APP_API_URL + "/store/category", {
+    method: "GET",
+    headers: { "content-type": "application/json" },
+  });
+}
+
+export function getProducts() {
+  return request(process.env.REACT_APP_API_URL + "/store/products", {
+    method: "GET",
+    headers: { "content-type": "application/json" },
+  });
+}
