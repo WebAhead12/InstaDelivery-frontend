@@ -1,0 +1,37 @@
+/* adminPage {
+  overflow-y: scroll;
+} */
+
+h3 {
+  height: 30%;
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  color: black;
+  width: px;
+}
+
+p {
+  display: flex !important;
+  text-decoration-thickness: 1%;
+  width: 17%;
+  border-bottom: none !important;
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  font-size: 16px;
+}
+.ant-collapse {
+  width: 339px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+  width: 20px;
+}
+
+table {
+  width: 100%;
+  font-size: 15px;
+}
