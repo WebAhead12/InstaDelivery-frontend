@@ -1,15 +1,21 @@
 .categoryWrapper {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .categoryBar {
-  display: flex;
+  margin-top: -1px;
+  /* display: flex; */
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  /* width: 100%; */
+
+  overflow: auto;
+  white-space: nowrap;
 }
 
 a {
-  width: 93px;
+  display: inline-block;
+  width: 90px;
   height: 50px;
   text-align: center;
   line-height: 3.3;
