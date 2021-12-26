@@ -30,7 +30,9 @@ function Store(props) {
       {store.map((section, idx) => {
         return (
           <div key={idx} className={style.category}>
-            <p id={section.category.toLowerCase()}>{section.category}</p>
+            <p id={section.category.toLowerCase()}>
+              <span className={style.lineThrough}>{section.category}</span>
+            </p>
             <div className={style.items}>
               {section.products.map((item, idx) => {
                 return (

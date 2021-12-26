@@ -17,7 +17,21 @@
 .checkOut {
   position: fixed;
   bottom: 0;
+  left: 0;
   padding: 10px;
+  padding-left: 100px;
   width: 100%;
   background-color: #c4c4c4;
+}
+
+.totalPrice {
+  background-color: rgb(240, 234, 234);
+  border: 1px solid black;
+}
+
+.checkOut Button {
+  background: #8ee57e;
+  color: black;
+  border-color: #b1dda9;
+  margin-left: 80px;
 }

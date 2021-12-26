@@ -6,20 +6,20 @@
   display: flex;
   justify-content: left;
   margin-left: 5px;
-  font-size: 10.5px;
+  font-size: 12px;
 }
 
 .price {
   display: flex;
   justify-content: left;
   margin-left: 5px;
-  font-size: 10.5px;
+  font-size: 12px;
 }
 
 .addBtn Button {
   width: 6em;
   height: 2em;
-  font-size: 11px;
+  font-size: 12px;
   background-color: #c1c1c1;
   border-color: #c1c1c1;
   color: black;
