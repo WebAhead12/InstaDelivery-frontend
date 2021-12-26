@@ -3,12 +3,14 @@ import NavBar from "../NavBar";
 import Categories from "../Store/Categories";
 import Search from "../Search";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 import Item from "../Store/Item";
 import Store from "../Store";
 import { getUser } from "../../utils/api";
 
 function Home() {
+  const goTo = useNavigate();
   const [rightButtonNavBar, setRightButtonNavBar] = useState("Login");
   const [centralText, setCentralText] = useState(
     "Have everything you need within 1-2 hours!"
@@ -32,7 +34,12 @@ function Home() {
     if (token) {
       getUser(token)
         .then((userData) => setCentralText(`Hi, ${userData.name}`))
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          alert("Error: ", err.message, "Please login again..");
+          localStorage.removeItem("access_token");
+          goTo("/lobby");
+          console.error(err);
+        });
       setRightButtonNavBar("Logout");
     } else {
       setRightButtonNavBar("Login");
