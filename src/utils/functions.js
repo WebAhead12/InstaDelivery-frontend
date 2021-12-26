@@ -19,3 +19,18 @@ export const emailValidation = (str) => {
   const regex = /^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   return regex.test(str);
 };
+
+export const addressValidation = (str) => {
+  const regex = /^[#.0-9a-zA-Z\s,-]+$/;
+  return regex.test(str);
+};
+
+export const zipcodeValidation = (num) => {
+  const regex = /^[0-9]*$/;
+  return regex.test(num);
+};
+
+export const phoneValidation = (num) => {
+  const regex = /^\(?([0,5]{2})\)?\(?\d{1}\)?\d{3}\d{4}$/;
+  return regex.test(num);
+};
