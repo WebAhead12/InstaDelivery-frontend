@@ -8,6 +8,9 @@ label {
   justify-content: center;
   align-items: flex-start;
 }
+.shippingTitle {
+  padding: 20px 0 10px 0;
+}
 
 input {
   width: 90%;
