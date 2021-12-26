@@ -5,6 +5,7 @@ import style from "./style.module.css";
 import { Radio, Form, Button } from "antd";
 import CreditCard from "./CreditCard";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
 import {
   capitalizeFirst,
   onlyLetters,

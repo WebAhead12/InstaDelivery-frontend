@@ -3,7 +3,7 @@
 }
 
 label {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -37,4 +37,5 @@ h5 {
   display: flex;
   margin-left: 10px;
   font-size: 20px;
+  padding-top: 20px;
 }

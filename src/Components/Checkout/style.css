@@ -1,0 +1,12 @@
+.ant-radio-wrapper {
+  display: flexbox !important;
+  flex-direction: row !important;
+}
+
+.ant-form-item-label {
+  height: 5px !important;
+}
+
+.ant-form-item-control-input-content {
+  /* padding-bottom: -5px !important; */
+}
