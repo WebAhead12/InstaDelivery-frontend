@@ -8,6 +8,9 @@ label {
   justify-content: center;
   align-items: flex-start;
 }
+.shippingTitle {
+  padding: 20px 0 10px 0;
+}
 
 input {
   width: 90%;
@@ -28,7 +31,7 @@ input {
 }
 
 .placeOrder {
-  background-color: #ffea9f;
+  background-color: #ffea9f !important;
   font-size: 18px;
   height: max-content;
 }

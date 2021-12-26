@@ -14,8 +14,8 @@ input {
   border: none;
   padding-right: 10px;
 }
-.cardNumber {
-  margin: -5px;
+.shippingTitle {
+  padding: 50px !important;
 }
 .expiration,
 .securityCode {
