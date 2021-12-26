@@ -2,3 +2,20 @@
 export const findIdx = (arrayOfObjs, objInTheArray) => {
   return arrayOfObjs.findIndex((item) => item.id === objInTheArray.id);
 };
+
+export const onlyLetters = (str) => {
+  const regex = /^[a-zA-Z\s]+$/;
+  return regex.test(str);
+};
+
+export const capitalizeFirst = (str) => {
+  return str
+    .split(" ")
+    .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
+    .join(" ");
+};
+
+export const emailValidation = (str) => {
+  const regex = /^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  return regex.test(str);
+};
