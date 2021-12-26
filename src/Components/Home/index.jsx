@@ -36,6 +36,7 @@ function Home() {
         .then((userData) => setCentralText(`Hi, ${userData.name}`))
         .catch((err) => {
           alert("Error: ", err.message, "Please login again..");
+          localStorage.removeItem("access_token");
           goTo("/lobby");
           console.error(err);
         });
