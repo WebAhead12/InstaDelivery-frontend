@@ -32,7 +32,10 @@ function Home() {
     if (token) {
       getUser(token)
         .then((userData) => setCentralText(`Hi, ${userData.name}`))
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          alert("Error: ", err.message, "Please login again..");
+          console.error(err);
+        });
       setRightButtonNavBar("Logout");
     } else {
       setRightButtonNavBar("Login");
