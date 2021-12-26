@@ -1,6 +1,6 @@
 .store {
   margin-top: 10px;
-  height: 75%;
+  height: 100%;
   overscroll-behavior-y: contain;
   position: fixed;
   overflow: scroll;
