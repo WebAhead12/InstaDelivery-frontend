@@ -30,7 +30,7 @@ export const zipcodeValidation = (num) => {
   return regex.test(num);
 };
 
-export const phoneValidation = (str) => {
-  const regex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
-  return regex.test(str);
+export const phoneValidation = (num) => {
+  const regex = /^\(?([0,5]{2})\)?\(?\d{1}\)?\d{3}\d{4}$/;
+  return regex.test(num);
 };
