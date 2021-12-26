@@ -15,22 +15,21 @@ export const capitalizeFirst = (str) => {
     .join(" ");
 };
 
-export const emailValidation = (str) => {
-  const regex = /^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  return regex.test(str);
-};
-
-export const addressValidation = (str) => {
+export const addressValidationRegex = (str) => {
   const regex = /^[#.0-9a-zA-Z\s,-]+$/;
   return regex.test(str);
 };
 
-export const zipcodeValidation = (num) => {
+export const zipcodeValidationRegex = (num) => {
   const regex = /^[0-9]*$/;
   return regex.test(num);
 };
+export const emailValidationRegex = (str) => {
+  const regex = /^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  return regex.test(str);
+};
 
-export const phoneValidation = (num) => {
+export const phoneValidationRegex = (num) => {
   const regex = /^\(?([0,5]{2})\)?\(?\d{1}\)?\d{3}\d{4}$/;
   return regex.test(num);
 };

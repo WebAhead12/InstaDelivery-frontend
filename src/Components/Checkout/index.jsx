@@ -5,47 +5,72 @@ import style from "./style.module.css";
 import { Radio, Form, Button } from "antd";
 import CreditCard from "./CreditCard";
 import { useNavigate } from "react-router-dom";
-import { capitalizeFirst, onlyLetters } from "../../utils/functions";
-import regexNot from "regex-not";
+import {
+  capitalizeFirst,
+  onlyLetters,
+  emailValidationRegex,
+  addressValidationRegex,
+  zipcodeValidationRegex,
+  phoneValidationRegex,
+} from "../../utils/functions";
 
 function Checkout(props) {
   const goTo = useNavigate();
+
   const [howToPay, setHowToPay] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("unknown error");
+  const [fullNameValidation, setFullNameValidation] = useState(false);
+  const [addressValidation, setAddressValidation] = useState(false);
+  const [cityValidation, setCityValidation] = useState(false);
+  const [zipcodeValidation, setZipcodeValidation] = useState(false);
+  const [emailValidation, setEmailValidation] = useState(false);
+  const [phoneValidation, setPhoneValidation] = useState(false);
 
   const [checkoutData, setCheckoutData] = useState({
     fullName: "",
     address: "",
     city: "",
-    zipCode: "",
+    zipcode: "",
+    email: "",
     phoneNumber: "",
     paymentMethod: "",
   });
 
   const onChange =
     (stateKey) =>
-    ({ target }) =>
+    ({ target }) => {
       setCheckoutData({ ...checkoutData, [stateKey]: target.value });
-
+    };
   const onSubmit = (event) => {
     event.preventDefault();
 
     if (!onlyLetters(checkoutData.fullName)) {
-      setShowError(!showError);
-      setErrorMessage("Only characters from A-Z are allowed");
+      setFullNameValidation(!fullNameValidation);
+      setTimeout(() => {
+        setFullNameValidation(false);
+      }, 3000);
+      return;
     }
-    console.log(checkoutData);
-  };
-
-  const handleKeyPress = (e) => {
-    const key = e.key;
-
-    if (!onlyLetters(key)) {
-      e.preventDefault();
-    } else {
-      console.log("you clicked on a number");
+    if (!addressValidationRegex(checkoutData.address)) {
+      setAddressValidation(!addressValidation);
+      return;
     }
+    if (!onlyLetters(checkoutData.city)) {
+      setCityValidation(!cityValidation);
+      return;
+    }
+    if (!zipcodeValidationRegex(checkoutData.zipcode)) {
+      setZipcodeValidation(!zipcodeValidation);
+      return;
+    }
+    if (!emailValidationRegex(checkoutData.email)) {
+      setEmailValidation(!emailValidation);
+      return;
+    }
+    if (!phoneValidationRegex(checkoutData.phoneNumber)) {
+      setPhoneValidation(!phoneValidation);
+      return;
+    }
+    //fetch goes here
   };
 
   return (
@@ -64,33 +89,35 @@ function Checkout(props) {
             <input
               id="fullName"
               type="text"
-              pattern="/^[a-zA-Z\s]+$/"
-              onKeyPress={(e) => handleKeyPress(e)}
               value={checkoutData.fullName}
               placeholder=" e.g. John Snow"
               className={style.fullNameInput}
-              onChange={(e) =>
-                setCheckoutData({
-                  ...checkoutData,
-                  fullName: capitalizeFirst(e.target.value),
-                })
-              }
+              onChange={onChange("fullName")}
               required
             />
+            <div className={style.error}>
+              {fullNameValidation
+                ? "Enter letters from A-Z only e.g. John Snow"
+                : null}
+            </div>
           </div>
           <br />
           <div className={style.address}>
-            <label htmlFor="name" className={style.addressLabel}>
+            <label htmlFor="address" className={style.addressLabel}>
               Address (House number and street name)
             </label>
             <input
               id="address"
               type="text"
+              value={checkoutData.address}
               placeholder=" e.g. 3372 Winterfell Castle"
               className={style.addressInput}
               onChange={onChange("address")}
               required
             />
+            <div className={style.error}>
+              {addressValidation ? "Enter address example" : null}
+            </div>
           </div>
           <br />
           <div className={style.city}>
@@ -101,11 +128,15 @@ function Checkout(props) {
             <input
               id="city"
               type="text"
+              value={checkoutData.city}
               placeholder=" e.g. Akko"
               className={style.cityInput}
               onChange={onChange("city")}
               required
             />
+            <div className={style.error}>
+              {cityValidation ? "Enter letters from A-Z only e.g. Akko" : null}
+            </div>
           </div>
           <br />
           <div className={style.zipCode}>
@@ -116,11 +147,15 @@ function Checkout(props) {
             <input
               id="zipCode"
               type="text"
+              value={checkoutData.zipcode}
               placeholder=" e.g. 3958200"
               className={style.zipCodeInput}
-              onChange={onChange("zipCode")}
+              onChange={onChange("zipcode")}
               required
             />
+            <div className={style.error}>
+              {zipcodeValidation ? "Enter numbers only e.g. 3081100" : null}
+            </div>
           </div>
           <br />
           <div className={style.email}>
@@ -130,12 +165,18 @@ function Checkout(props) {
 
             <input
               id="email"
-              type="email"
+              type="text"
+              value={checkoutData.email}
               placeholder=" johnSnow1@gmail.com"
               className={style.emailInput}
               onChange={onChange("email")}
               required
             />
+            <div className={style.error}>
+              {emailValidation
+                ? "Please enter a valid email e.g. johnsnow.1@gmail.com"
+                : null}
+            </div>
           </div>
           <br />
           <div className={style.phoneNumber}>
@@ -146,15 +187,19 @@ function Checkout(props) {
             <input
               id="phoneNumber"
               type="tel"
+              value={checkoutData.phoneNumber}
               placeholder=" e.g. +972 05X-XXX-XXXX"
               className={style.phoneNumberInput}
               onChange={onChange("phoneNumber")}
               required
             />
+            <div className={style.error}>
+              {phoneValidation
+                ? "Please enter a valid phone number e.g. 0544778069"
+                : null}
+            </div>
           </div>
           <br />
-
-          <div className={style.error}>{showError ? errorMessage : null}</div>
 
           <div className={style.radioBtn}>
             <h5>Payment Method</h5>
