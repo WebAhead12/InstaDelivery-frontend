@@ -12,7 +12,7 @@ function Checkout(props) {
   const [checkoutData, setCheckoutData] = useState({
     name: "",
     address: "",
-    region: "",
+    city: "",
     zipCode: "",
     phoneNumber: "",
     paymentMethod: "",
@@ -64,17 +64,17 @@ function Checkout(props) {
             />
           </div>
           <br />
-          <div className={style.region}>
-            <label htmlFor="region" className={style.regionLabel}>
-              Region
+          <div className={style.city}>
+            <label htmlFor="city" className={style.cityLabel}>
+              City
             </label>
 
             <input
-              id="region"
+              id="city"
               type="text"
-              placeholder=" e.g. North"
-              className={style.regionInput}
-              onChange={onChange("region")}
+              placeholder=" e.g. Akko"
+              className={style.cityInput}
+              onChange={onChange("city")}
               required
             />
           </div>
