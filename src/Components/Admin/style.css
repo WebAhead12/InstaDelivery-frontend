@@ -1,8 +1,8 @@
-/* adminPage {
-  overflow-y: scroll;
-} */
+.adminPage {
+  /* width: max-content; */
+}
 
-h3 {
+.userDetails {
   height: 30%;
   width: 80%;
   background-color: transparent;
@@ -11,7 +11,7 @@ h3 {
   width: px;
 }
 
-p {
+.userDetails {
   display: flex !important;
   text-decoration-thickness: 1%;
   width: 17%;
@@ -21,7 +21,24 @@ p {
   font-size: 16px;
 }
 .ant-collapse {
-  width: 339px;
+  width: 79%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum", "tnum";
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-bottom: 0;
+  border-radius: 2px;
+  margin-left: 71px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 input[type="radio"],

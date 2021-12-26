@@ -136,7 +136,7 @@ function Cart(props) {
               );
             })}
           <div className={style.checkOut}>
-            <span className={style.totalPrice}>Total: {totalPrice()} ₪</span>
+            <div className={style.totalPrice}>Total: {totalPrice()} ₪</div>
             <Button
               type="primary"
               onClick={() => {

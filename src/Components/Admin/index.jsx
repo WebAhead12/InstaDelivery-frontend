@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../NavBar";
 import { useState } from "react";
 import style from "./style.css";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { Collapse } from "antd";
 
 function Admin() {
@@ -21,28 +21,22 @@ function Admin() {
         </h4>
       </div>
       <div className={style.unfulfilledOrders}>
-        <div
-          style={{
-            display: "block",
-            width: 418,
-            padding: 30,
-          }}
-        >
+        <div>
           <Collapse>
             <Panel header="Order #483" key="1">
-              <p>
+              <p className="userDetails">
                 <u>Name:</u>
               </p>
 
-              <p>
+              <p className="userDetails">
                 <u>Address:</u>
               </p>
 
-              <p>
+              <p className="userDetails">
                 <u>Email:</u>
               </p>
 
-              <p>
+              <p className="userDetails">
                 <u>Phone#:</u>
               </p>
 
@@ -104,90 +98,82 @@ function Admin() {
         </div>
       </div>
 
-      <div className={style.fulfilledTitle}>
+      <div className={style.historyTitle}>
         <h4>
           <u>Fulfilled Orders</u>
         </h4>
       </div>
-      <div className={style.unfulfilledOrders}>
-        <div
-          style={{
-            display: "block",
-            width: 418,
-            padding: 30,
-          }}
-        >
-          <Collapse>
-            <Panel header="Order #482" key="4">
-              <p>
-                <u>Name:</u>
-              </p>
+      <div className={style.history}>
+        <Collapse>
+          <Panel header="Order #482" key="4">
+            <p>
+              <u>Name:</u>
+            </p>
 
-              <p>
-                <u>Address:</u>
-              </p>
+            <p>
+              <u>Address:</u>
+            </p>
 
-              <p>
-                <u>Email:</u>
-              </p>
+            <p>
+              <u>Email:</u>
+            </p>
 
-              <p>
-                <u>Phone#:</u>
-              </p>
+            <p>
+              <u>Phone#:</u>
+            </p>
 
-              <hr />
+            <hr />
 
-              <table>
-                <tr>
-                  <th>ID</th>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <th>1% Milk</th>
-                  <th>3</th>
-                  <hr />
-                </tr>
+            <table>
+              <tr>
+                <th>ID</th>
+                <th>Item</th>
+                <th>Quantity</th>
+              </tr>
+              <tr>
+                <th>1</th>
+                <th>1% Milk</th>
+                <th>3</th>
+                <hr />
+              </tr>
 
-                <tr>
-                  <th>23</th>
-                  <th>Croissant</th>
-                  <th>5</th>
-                </tr>
-                <tr>
-                  <th>77</th>
-                  <th>Pizza Bites</th>
-                  <th>2</th>
-                </tr>
-                <tr>
-                  <th>88</th>
-                  <th>Fuze Tea</th>
-                  <th>1</th>
-                </tr>
-              </table>
-              <hr />
-              <h5>Total: 91.20₪ (paid)</h5>
-              <div className={style.checkbox}>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    // onChange={handleChange}
-                  />
-                  {/* checkbox name under review */}
-                  Done
-                </label>
-              </div>
-            </Panel>
-            <Panel header="Order #481" key="5">
-              <p>Similar stuff</p>
-            </Panel>
-            <Panel header="Order #480" key="6">
-              <p>Similar stuff</p>
-            </Panel>
-          </Collapse>
-        </div>
+              <tr>
+                <th>23</th>
+                <th>Croissant</th>
+                <th>5</th>
+              </tr>
+              <tr>
+                <th>77</th>
+                <th>Pizza Bites</th>
+                <th>2</th>
+              </tr>
+              <tr>
+                <th>88</th>
+                <th>Fuze Tea</th>
+                <th>1</th>
+              </tr>
+            </table>
+            <hr />
+            <h5>Total: 91.20₪ (paid)</h5>
+            <div className={style.checkbox}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  // onChange={handleChange}
+                />
+                {/* checkbox name under review */}
+                Done
+              </label>
+            </div>
+          </Panel>
+          <Panel header="Order #481" key="5">
+            <p>Similar stuff</p>
+          </Panel>
+          <Panel header="Order #480" key="6">
+            <p>Similar stuff</p>
+          </Panel>
+        </Collapse>
       </div>
     </div>
   );

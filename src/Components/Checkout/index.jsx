@@ -53,39 +53,40 @@ function Checkout(props) {
     if (!addressValidationRegex(checkoutData.address)) {
       setAddressValidation(!addressValidation);
       setTimeout(() => {
-        setFullNameValidation(false);
+        setAddressValidation(false);
       }, 3000);
       return;
     }
     if (!onlyLetters(checkoutData.city)) {
       setCityValidation(!cityValidation);
       setTimeout(() => {
-        setFullNameValidation(false);
+        setCityValidation(false);
       }, 3000);
       return;
     }
     if (!zipcodeValidationRegex(checkoutData.zipcode)) {
       setZipcodeValidation(!zipcodeValidation);
       setTimeout(() => {
-        setFullNameValidation(false);
+        setZipcodeValidation(false);
       }, 3000);
       return;
     }
     if (!emailValidationRegex(checkoutData.email)) {
       setEmailValidation(!emailValidation);
       setTimeout(() => {
-        setFullNameValidation(false);
+        setEmailValidation(false);
       }, 3000);
       return;
     }
     if (!phoneValidationRegex(checkoutData.phoneNumber)) {
       setPhoneValidation(!phoneValidation);
       setTimeout(() => {
-        setFullNameValidation(false);
+        setPhoneValidation(false);
       }, 3000);
       return;
     }
     //fetch goes here
+    goTo("/confirmation");
   };
 
   return (

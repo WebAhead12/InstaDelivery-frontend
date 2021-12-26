@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.confirmationText {
+  padding: 7px 15px 0 15px;
+}
+
 h4 {
   color: black;
   margin-top: 20px;
@@ -22,7 +26,7 @@ h3 {
   margin-left: 30px;
   margin-right: 20px;
   color: green;
-  background-color: #b1dda9;
+  background-color: #b1dda9 !important;
   text-align: center;
   padding: 4px;
   text-indent: 10px;
