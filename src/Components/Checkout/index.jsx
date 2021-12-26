@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../NavBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./style.module.css";
 import { Radio, Form, Button } from "antd";
 import CreditCard from "./CreditCard";
@@ -12,10 +12,11 @@ import {
   zipcodeValidationRegex,
   phoneValidationRegex,
 } from "../../utils/functions";
-import { setUserOrder } from "../../utils/api";
+import { setUserOrder, getCartItems } from "../../utils/api";
 
 function Checkout() {
   const goTo = useNavigate();
+  const [orderSummary, setOrderSummary] = useState([]);
 
   const [howToPay, setHowToPay] = useState(false);
   const [fullNameValidation, setFullNameValidation] = useState(false);
@@ -34,6 +35,35 @@ function Checkout() {
     phoneNumber: "",
     paymentMethod: "",
   });
+
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      getCartItems(token)
+        .then((res) => {
+          let orderedItems = [];
+          res.items.map((item) => {
+            return orderedItems.push({
+              id: item.item_id,
+              name: item.name,
+              quantity: item.quantity,
+              price: item.price,
+            });
+          });
+
+          setOrderSummary(orderedItems);
+        })
+        .catch((err) => {
+          localStorage.removeItem("access_token");
+          alert("Timeout, Please sign in again.. | " + err.message);
+          goTo("/lobby");
+        });
+    } else {
+      alert("Login Please..");
+      goTo("/lobby");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onChange =
     (stateKey) =>
@@ -107,6 +137,28 @@ function Checkout() {
   return (
     <div className={style.checkout}>
       <NavBar buttonValue="Home" />
+      <table className={style.itemList}>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>quantity</th>
+            <th>price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orderSummary.map((product, idx) => {
+            return (
+              <tr className={style.item} key={idx}>
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>{product.quantity}</td>
+                <td>{product.price} ₪</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
       <Form onSubmit={onSubmit} className={style.checkout}>
         <div className={style.shippingAddress}>
           <div className={style.shippingTitle}>
