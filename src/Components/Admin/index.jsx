@@ -49,33 +49,36 @@ function Admin() {
               <hr />
 
               <table>
-                <tr>
-                  <th>ID</th>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <th>1% Milk</th>
-                  <th>3</th>
-                  <hr />
-                </tr>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>1% Milk</td>
+                    <td>3</td>
+                  </tr>
 
-                <tr>
-                  <th>23</th>
-                  <th>Croissant</th>
-                  <th>5</th>
-                </tr>
-                <tr>
-                  <th>77</th>
-                  <th>Pizza Bites</th>
-                  <th>2</th>
-                </tr>
-                <tr>
-                  <th>88</th>
-                  <th>Fuze Tea</th>
-                  <th>1</th>
-                </tr>
+                  <tr>
+                    <td>23</td>
+                    <td>Croissant</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>77</td>
+                    <td>Pizza Bites</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>88</td>
+                    <td>Fuze Tea</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
               </table>
               <hr />
               <h5>Total: 91.20₪ (paid)</h5>
