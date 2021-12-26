@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   background-color: hsl(47, 100%, 82%);
-  border: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .cartIcon img {
