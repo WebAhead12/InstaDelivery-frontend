@@ -19,6 +19,7 @@
 }
 .search {
   margin-top: 10px;
+  padding-bottom: 7px;
   display: flex;
   justify-content: space-evenly;
 }

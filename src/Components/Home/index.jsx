@@ -11,6 +11,7 @@ import { getUser } from "../../utils/api";
 
 function Home() {
   const goTo = useNavigate();
+  const [products, setProducts] = useState([]);
   const [rightButtonNavBar, setRightButtonNavBar] = useState("Login");
   const [centralText, setCentralText] = useState(
     "Have everything you need within 1-2 hours!"
@@ -72,6 +73,10 @@ function Home() {
   const toggleSearchState = () => {
     setSearchInAction(!searchInAction);
   };
+  //pass the function to Store then update the products that the store has.
+  const getProductsFromStore = (newProducts) => {
+    setProducts(newProducts);
+  };
   return (
     <div className="home">
       <div className={style.header}>
@@ -83,11 +88,19 @@ function Home() {
           clickOnPlusMinus={itemsCounter} //to CartItem component
         />
         <Categories />
-        <Search updateItem={updateItem} doSearch={toggleSearchState} />
+        <Search
+          updateItem={updateItem}
+          doSearch={toggleSearchState}
+          allProducts={products}
+        />
       </div>
       {!searchInAction ? (
         <div className={style.products}>
-          <Store clickAdd={itemsCounter} updateItem={updateItem} />
+          <Store
+            clickAdd={itemsCounter}
+            updateItem={updateItem}
+            updateProducts={getProductsFromStore}
+          />
         </div>
       ) : (
         <Item
