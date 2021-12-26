@@ -3,6 +3,16 @@ export const findIdx = (arrayOfObjs, objInTheArray) => {
   return arrayOfObjs.findIndex((item) => item.id === objInTheArray.id);
 };
 
+//given array of objects(contain ['name'] property) and a name, => find obj by name of property and return it;
+export const findProduct = (arrayOfObjects, name) => {
+  const result = arrayOfObjects.filter((item) => item.name === name);
+  if (result.length) {
+    return result[0];
+  } else {
+    return -1;
+  }
+};
+
 export const onlyLetters = (str) => {
   const regex = /^[a-zA-Z\s]+$/;
   return regex.test(str);

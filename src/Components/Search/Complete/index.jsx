@@ -1,15 +1,8 @@
 import { AutoComplete } from "antd";
+import { findProduct } from "../../../utils/functions";
 
 const Complete = (props) => {
-  //find obj by name and return it;
-  const findProduct = (name) => {
-    const result = props.products.filter((item) => item.name === name);
-    if (result.length) {
-      return result[0];
-    } else {
-      return -1;
-    }
-  };
+  //map the array to match the ant-design component requirement for auto complete.
   const allItems = [
     ...props.products.map((item) => {
       return { value: item.name };
@@ -29,7 +22,7 @@ const Complete = (props) => {
         option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
       }
       onChange={(searchWord) => {
-        let item = { ...findProduct(searchWord) };
+        let item = { ...findProduct(props.products, searchWord) };
         if (!searchWord) {
           props.toggleTheSearchState();
           return;

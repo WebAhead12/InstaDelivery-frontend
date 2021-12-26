@@ -53,22 +53,37 @@ function Checkout(props) {
     }
     if (!addressValidationRegex(checkoutData.address)) {
       setAddressValidation(!addressValidation);
+      setTimeout(() => {
+        setFullNameValidation(false);
+      }, 3000);
       return;
     }
     if (!onlyLetters(checkoutData.city)) {
       setCityValidation(!cityValidation);
+      setTimeout(() => {
+        setFullNameValidation(false);
+      }, 3000);
       return;
     }
     if (!zipcodeValidationRegex(checkoutData.zipcode)) {
       setZipcodeValidation(!zipcodeValidation);
+      setTimeout(() => {
+        setFullNameValidation(false);
+      }, 3000);
       return;
     }
     if (!emailValidationRegex(checkoutData.email)) {
       setEmailValidation(!emailValidation);
+      setTimeout(() => {
+        setFullNameValidation(false);
+      }, 3000);
       return;
     }
     if (!phoneValidationRegex(checkoutData.phoneNumber)) {
       setPhoneValidation(!phoneValidation);
+      setTimeout(() => {
+        setFullNameValidation(false);
+      }, 3000);
       return;
     }
     //fetch goes here
