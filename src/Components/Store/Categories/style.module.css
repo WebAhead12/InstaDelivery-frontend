@@ -12,6 +12,9 @@
   overflow: auto;
   white-space: nowrap;
 }
+.categoryBar::-webkit-scrollbar {
+  display: none;
+}
 
 a {
   margin-left: -1px;

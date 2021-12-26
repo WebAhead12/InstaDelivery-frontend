@@ -11,7 +11,9 @@ label {
 .shippingTitle {
   padding: 20px 0 10px 0;
 }
-
+.error {
+  color: rgb(194, 41, 41);
+}
 input {
   width: 90%;
   height: 36px;
