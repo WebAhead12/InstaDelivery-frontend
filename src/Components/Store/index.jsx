@@ -12,7 +12,14 @@ function Store(props) {
   useEffect(() => {
     //fetch all the products according to the categories and set it in the store
     getProducts()
-      .then((res) => setStore(res.store))
+      .then((res) => {
+        setStore(res.store);
+        let allProducts = [];
+        for (let section of res.store) {
+          allProducts = allProducts.concat(section.products);
+        }
+        props.updateProducts(allProducts);
+      })
       .catch((error) => {
         console.error(error);
       });
