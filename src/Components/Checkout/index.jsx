@@ -5,12 +5,17 @@ import style from "./style.module.css";
 import { Radio, Form, Button } from "antd";
 import CreditCard from "./CreditCard";
 import { useNavigate } from "react-router-dom";
+import { capitalizeFirst, onlyLetters } from "../../utils/functions";
+import regexNot from "regex-not";
 
 function Checkout(props) {
   const goTo = useNavigate();
   const [howToPay, setHowToPay] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("unknown error");
+
   const [checkoutData, setCheckoutData] = useState({
-    name: "",
+    fullName: "",
     address: "",
     city: "",
     zipCode: "",
@@ -25,6 +30,22 @@ function Checkout(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+    if (!onlyLetters(checkoutData.fullName)) {
+      setShowError(!showError);
+      setErrorMessage("Only characters from A-Z are allowed");
+    }
+    console.log(checkoutData);
+  };
+
+  const handleKeyPress = (e) => {
+    const key = e.key;
+
+    if (!onlyLetters(key)) {
+      e.preventDefault();
+    } else {
+      console.log("you clicked on a number");
+    }
   };
 
   return (
@@ -43,9 +64,17 @@ function Checkout(props) {
             <input
               id="fullName"
               type="text"
+              pattern="/^[a-zA-Z\s]+$/"
+              onKeyPress={(e) => handleKeyPress(e)}
+              value={checkoutData.fullName}
               placeholder=" e.g. John Snow"
               className={style.fullNameInput}
-              onChange={onChange("fullName")}
+              onChange={(e) =>
+                setCheckoutData({
+                  ...checkoutData,
+                  fullName: capitalizeFirst(e.target.value),
+                })
+              }
               required
             />
           </div>
@@ -125,6 +154,8 @@ function Checkout(props) {
           </div>
           <br />
 
+          <div className={style.error}>{showError ? errorMessage : null}</div>
+
           <div className={style.radioBtn}>
             <h5>Payment Method</h5>
           </div>
@@ -156,10 +187,7 @@ function Checkout(props) {
 
         {!howToPay ? <CreditCard onChange={onChange} /> : null}
 
-        <Button
-          className={style.placeOrder}
-          onClick={() => goTo("/confirmation")}
-        >
+        <Button className={style.placeOrder} onClick={onSubmit}>
           Place Order
         </Button>
       </Form>
