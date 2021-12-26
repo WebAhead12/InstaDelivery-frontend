@@ -16,6 +16,7 @@ function Home() {
   const [centralText, setCentralText] = useState(
     "Have everything you need within 1-2 hours!"
   );
+  const [linkCentral, setLinkCentral] = useState("/");
   //number of item added to cart
   const [badgeCount, setBadgeCount] = useState(0);
   //toggled when a search occurs.
@@ -34,7 +35,14 @@ function Home() {
     const token = window.localStorage.getItem("access_token");
     if (token) {
       getUser(token)
-        .then((userData) => setCentralText(`Hi, ${userData.name}`))
+        .then((userData) => {
+          setCentralText(`Hi, ${userData.name}`);
+          if (userData.id === 1) {
+            setLinkCentral("/admin");
+          } else {
+            setLinkCentral("/");
+          }
+        })
         .catch((err) => {
           alert("Error: ", err.message, "Please login again..");
           localStorage.removeItem("access_token");
@@ -82,6 +90,7 @@ function Home() {
       <div className={style.header}>
         <NavBar
           buttonValue={rightButtonNavBar}
+          hrefCentral={linkCentral} //to Central, helps get into manager page for the Administrator.
           centralInput={centralText} //to Central
           count={badgeCount} //to Badge
           addItemToCart={item} //to Cart component

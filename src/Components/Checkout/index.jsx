@@ -106,7 +106,7 @@ function Checkout() {
 
   return (
     <div className={style.checkout}>
-      <NavBar buttonValue="Home" />
+      <NavBar buttonValue="Home" hrefCentral="/" />
       <Form onSubmit={onSubmit} className={style.checkout}>
         <div className={style.shippingAddress}>
           <div className={style.shippingTitle}>
