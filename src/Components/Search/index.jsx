@@ -1,55 +1,5 @@
-// import style from "./style.module.css";
 import "./style.css";
-// import { Button } from "antd";
-import React from "react";
-import "antd/dist/antd.css";
-import { AutoComplete } from "antd";
-import products from "../../Products/allProducts";
-
-//find obj by name and return it;
-const findProduct = (name) => {
-  const result = products.filter((item) => item.name === name);
-  if (result.length) {
-    return result[0];
-  } else {
-    return -1;
-  }
-};
-
-const allItems = [
-  ...products.map((item) => {
-    return { value: item.name };
-  }),
-];
-
-const options = allItems;
-
-const Complete = (props) => (
-  <AutoComplete
-    allowClear
-    style={{
-      width: 200,
-    }}
-    options={options}
-    placeholder="Search for a product here..."
-    filterOption={(inputValue, option) =>
-      option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-    }
-    onChange={(searchWord) => {
-      let item = { ...findProduct(searchWord) };
-      if (!searchWord) {
-        props.toggleTheSearchState();
-        return;
-      } else if (!item.name) {
-        return;
-      } else {
-        props.toggleTheSearchState();
-        item = { ...item, isSearched: true };
-        props.updateItem(item);
-      }
-    }}
-  />
-);
+import Complete from "./Complete";
 
 function Search(props) {
   return (
@@ -57,6 +7,7 @@ function Search(props) {
       <Complete
         updateItem={props.updateItem}
         toggleTheSearchState={props.doSearch}
+        products={props.allProducts}
       ></Complete>
     </div>
   );

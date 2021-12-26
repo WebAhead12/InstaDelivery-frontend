@@ -64,3 +64,14 @@ export function getCartItems(token) {
     headers: { authorization: `Bearer ${token}` },
   });
 }
+
+export function setUserAddress(token, address) {
+  return request(process.env.REACT_APP_API_URL + "/user/address", {
+    method: "POST",
+    body: JSON.stringify(address),
+    headers: {
+      authorization: `Bearer ${token}`,
+      "content-type": "application/json",
+    },
+  });
+}
