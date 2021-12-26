@@ -1,5 +1,6 @@
 .store {
   margin-top: 10px;
+  /* do not change except for in media query - this is responsive to iphone 8 */
   height: 60%;
   overscroll-behavior-y: contain;
   position: fixed;

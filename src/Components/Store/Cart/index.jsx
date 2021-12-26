@@ -136,15 +136,9 @@ function Cart(props) {
               );
             })}
           <div className={style.checkOut}>
-            Total: {totalPrice()}
+            <span className={style.totalPrice}>Total: {totalPrice()} ₪</span>
             <Button
               type="primary"
-              style={{
-                background: "#8EE57E",
-                color: "black",
-                borderColor: "#B1DDA9",
-                marginLeft: "80px",
-              }}
               onClick={() => {
                 const token = localStorage.getItem("access_token");
                 if (!items.length) {
