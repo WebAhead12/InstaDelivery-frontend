@@ -28,7 +28,7 @@ input {
 }
 
 .placeOrder {
-  background-color: #ffea9f;
+  background-color: #ffea9f !important;
   font-size: 18px;
   height: max-content;
 }
