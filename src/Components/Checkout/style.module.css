@@ -3,10 +3,13 @@
 }
 
 label {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+.shippingTitle {
+  padding: 20px 0 10px 0;
 }
 
 input {
@@ -28,7 +31,7 @@ input {
 }
 
 .placeOrder {
-  background-color: #ffea9f;
+  background-color: #ffea9f !important;
   font-size: 18px;
   height: max-content;
 }
@@ -37,4 +40,5 @@ h5 {
   display: flex;
   margin-left: 10px;
   font-size: 20px;
+  padding-top: 20px;
 }

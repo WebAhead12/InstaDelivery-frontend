@@ -14,7 +14,13 @@ input {
   border: none;
   padding-right: 10px;
 }
-
+.shippingTitle {
+  padding: 50px !important;
+}
+.expiration,
+.securityCode {
+  padding-top: 10px;
+}
 /* In case we want to go exactly like figma, then delete this entirely */
 .expiration input {
   width: 17%;

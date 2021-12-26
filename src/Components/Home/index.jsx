@@ -95,13 +95,11 @@ function Home() {
         />
       </div>
       {!searchInAction ? (
-        <div className={style.products}>
-          <Store
-            clickAdd={itemsCounter}
-            updateItem={updateItem}
-            updateProducts={getProductsFromStore}
-          />
-        </div>
+        <Store
+          clickAdd={itemsCounter}
+          updateItem={updateItem}
+          updateProducts={getProductsFromStore}
+        />
       ) : (
         <Item
           id={item.id}

@@ -1,10 +1,9 @@
 .store {
   margin-top: 10px;
-  /* do not change except for in media query - this is responsive to iphone 8 */
-  height: 60%;
-  overscroll-behavior-y: contain;
+  height: -webkit-fill-available;
   position: fixed;
   overflow: scroll;
+  padding-bottom: 250px;
 }
 
 .category {
@@ -17,20 +16,16 @@
 
 .items {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 30px;
   flex-wrap: wrap;
   width: fit-content;
 }
 p {
-  /* display: inline-block; */
   font-size: 18px;
   display: flex;
   text-align: center;
   justify-content: center;
-  /* border-bottom: 2px solid black; */
-  /* line-height: 1;
-  padding-right: 200px;
-  padding-left: 80px; */
 }
 
 .lineThrough:after,
