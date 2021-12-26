@@ -17,7 +17,7 @@ function CreditCard(props) {
           required
         />
       </div>
-      <br />
+      {/* <br /> */}
 
       <div className="smallInput">
         <div className={style.expiration}>
@@ -35,7 +35,7 @@ function CreditCard(props) {
           />
         </div>
 
-        <br />
+        {/* <br /> */}
         <div className={style.securityCode}>
           <label htmlFor="securityCode" className={style.securityCodeLabel}>
             Security Code
