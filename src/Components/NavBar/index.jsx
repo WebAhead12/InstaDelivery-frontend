@@ -27,7 +27,7 @@ function NavBar(props) {
             {props.buttonValue}
           </Button>
         </div>
-        <Central description={props.centralInput} />
+        <Central description={props.centralInput} linkMe={props.hrefCentral} />
         <Cart
           count={props.count}
           item={props.addItemToCart}
@@ -51,7 +51,7 @@ function NavBar(props) {
           </Button>
         </div>
         <div className={style.checkoutLogo}>
-          <Central />
+          <Central linkMe={props.hrefCentral} />
         </div>
         <div className={style.button}>
           <Button

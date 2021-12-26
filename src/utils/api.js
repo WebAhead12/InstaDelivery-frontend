@@ -75,3 +75,10 @@ export function setUserOrder(token, checkOutData) {
     },
   });
 }
+
+export function getAllOrders(token) {
+  return request(process.env.REACT_APP_API_URL + "/manager/orders", {
+    method: "GET",
+    headers: { authorization: `Bearer ${token}` },
+  });
+}

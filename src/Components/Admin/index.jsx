@@ -1,20 +1,42 @@
 import React from "react";
 import NavBar from "../NavBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getAllOrders } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
 import style from "./style.css";
 // import "antd/dist/antd.css";
 import { Collapse } from "antd";
 
 function Admin() {
+  const goTo = useNavigate();
   const [checked, setChecked] = useState(false);
   const handleChange = () => {
     setChecked(!checked);
   };
   const { Panel } = Collapse;
 
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      getAllOrders(token);
+      // .then((res) => {
+      // if (res.id !== 1) {
+      //   alert("No admin privileges, you'll be forwarded to the main page.");
+      //   goTo("/");
+      // } else {
+      //   console.log(res.orders);
+      // }
+      // });
+    } else {
+      alert("Please Login..");
+      goTo("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className={style.adminPage}>
-      <NavBar buttonValue="Home" />
+      <NavBar buttonValue="Home" hrefCentral="/" />
       <div className={style.unfulfilledTitle}>
         <h4>
           <u>Unfulfilled Orders</u>

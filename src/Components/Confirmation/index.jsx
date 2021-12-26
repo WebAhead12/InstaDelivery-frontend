@@ -5,7 +5,7 @@ function Confirmation() {
   localStorage.removeItem("cartItems");
   return (
     <div className={style.confirmation}>
-      <NavBar buttonValue="Home" />
+      <NavBar buttonValue="Home" hrefCentral="/" />
       <div className={style.confirmationText}>
         <h4>Thank you for shopping with InstaDelivery</h4>
         <h3> Your order has been placed successfully!</h3>
