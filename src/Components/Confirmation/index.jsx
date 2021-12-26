@@ -2,6 +2,7 @@ import React from "react";
 import style from "./style.module.css";
 import NavBar from "../NavBar";
 function Confirmation() {
+  localStorage.removeItem("cartItems");
   return (
     <div className={style.confirmation}>
       <NavBar buttonValue="Home" />

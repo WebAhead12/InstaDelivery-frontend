@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Drawer, Button, Badge } from "antd";
 import Item from "./CartItem";
 import { useNavigate } from "react-router-dom";
-import { findIdx } from "../../../utils/functions";
+import { findIdx, totalPrice } from "../../../utils/functions";
 import { addItemsToCart } from "../../../utils/api";
 
 function Cart(props) {
@@ -32,15 +32,6 @@ function Cart(props) {
     } else {
       localStorage.setItem("cartItems", JSON.stringify([...newStateOfItems]));
     }
-  };
-
-  //calculate total price
-  const totalPrice = () => {
-    let sum = 0;
-    for (let item of items) {
-      sum += item.price * item.quantity;
-    }
-    return sum.toFixed(2);
   };
 
   useEffect(() => {
@@ -136,7 +127,9 @@ function Cart(props) {
               );
             })}
           <div className={style.checkOut}>
-            <span className={style.totalPrice}>Total: {totalPrice()} ₪</span>
+            <span className={style.totalPrice}>
+              Total: {totalPrice(items)} ₪
+            </span>
             <Button
               type="primary"
               onClick={() => {

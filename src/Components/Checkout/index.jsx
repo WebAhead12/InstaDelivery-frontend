@@ -6,15 +6,15 @@ import { Radio, Form, Button } from "antd";
 import CreditCard from "./CreditCard";
 import { useNavigate } from "react-router-dom";
 import {
-  capitalizeFirst,
   onlyLetters,
   emailValidationRegex,
   addressValidationRegex,
   zipcodeValidationRegex,
   phoneValidationRegex,
 } from "../../utils/functions";
+import { setUserOrder } from "../../utils/api";
 
-function Checkout(props) {
+function Checkout() {
   const goTo = useNavigate();
 
   const [howToPay, setHowToPay] = useState(false);
@@ -42,50 +42,66 @@ function Checkout(props) {
     };
   const onSubmit = (event) => {
     event.preventDefault();
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      if (!onlyLetters(checkoutData.fullName)) {
+        setFullNameValidation(!fullNameValidation);
+        setTimeout(() => {
+          setFullNameValidation(false);
+        }, 3000);
+        return;
+      }
+      if (!addressValidationRegex(checkoutData.address)) {
+        setAddressValidation(!addressValidation);
+        setTimeout(() => {
+          setFullNameValidation(false);
+        }, 3000);
+        return;
+      }
+      if (!onlyLetters(checkoutData.city)) {
+        setCityValidation(!cityValidation);
+        setTimeout(() => {
+          setFullNameValidation(false);
+        }, 3000);
+        return;
+      }
+      if (!zipcodeValidationRegex(checkoutData.zipcode)) {
+        setZipcodeValidation(!zipcodeValidation);
+        setTimeout(() => {
+          setFullNameValidation(false);
+        }, 3000);
+        return;
+      }
+      if (!emailValidationRegex(checkoutData.email)) {
+        setEmailValidation(!emailValidation);
+        setTimeout(() => {
+          setFullNameValidation(false);
+        }, 3000);
+        return;
+      }
+      if (!phoneValidationRegex(checkoutData.phoneNumber)) {
+        setPhoneValidation(!phoneValidation);
+        setTimeout(() => {
+          setFullNameValidation(false);
+        }, 3000);
+        return;
+      }
 
-    if (!onlyLetters(checkoutData.fullName)) {
-      setFullNameValidation(!fullNameValidation);
-      setTimeout(() => {
-        setFullNameValidation(false);
-      }, 3000);
+      setUserOrder(token, checkoutData)
+        .then((res) => {
+          goTo("/confirmation");
+        })
+        .catch((err) => {
+          console.error(err);
+          localStorage.removeItem("access_token");
+          alert("Timeout, Please sign in again.. | " + err.message);
+          goTo("/lobby");
+        });
       return;
+    } else {
+      alert("Login Please..");
+      goTo("/lobby");
     }
-    if (!addressValidationRegex(checkoutData.address)) {
-      setAddressValidation(!addressValidation);
-      setTimeout(() => {
-        setFullNameValidation(false);
-      }, 3000);
-      return;
-    }
-    if (!onlyLetters(checkoutData.city)) {
-      setCityValidation(!cityValidation);
-      setTimeout(() => {
-        setFullNameValidation(false);
-      }, 3000);
-      return;
-    }
-    if (!zipcodeValidationRegex(checkoutData.zipcode)) {
-      setZipcodeValidation(!zipcodeValidation);
-      setTimeout(() => {
-        setFullNameValidation(false);
-      }, 3000);
-      return;
-    }
-    if (!emailValidationRegex(checkoutData.email)) {
-      setEmailValidation(!emailValidation);
-      setTimeout(() => {
-        setFullNameValidation(false);
-      }, 3000);
-      return;
-    }
-    if (!phoneValidationRegex(checkoutData.phoneNumber)) {
-      setPhoneValidation(!phoneValidation);
-      setTimeout(() => {
-        setFullNameValidation(false);
-      }, 3000);
-      return;
-    }
-    //fetch goes here
   };
 
   return (
@@ -228,16 +244,19 @@ function Checkout(props) {
             initialValue={2}
           >
             <Radio.Group
-              onChange={() => {
+              onChange={(e) => {
                 setHowToPay(!howToPay);
+                setCheckoutData({
+                  ...checkoutData,
+                  paymentMethod: e.target.value,
+                });
               }}
-              value={checkoutData.paymentMethod}
             >
               <div className="paymentMethods">
-                <Radio className={style.cash} value={1}>
+                <Radio className={style.cash} value={"Cash"}>
                   Cash
                 </Radio>
-                <Radio className={style.credit} value={2}>
+                <Radio className={style.credit} value={"Credit Card"}>
                   Credit Card
                 </Radio>
               </div>

@@ -65,10 +65,10 @@ export function getCartItems(token) {
   });
 }
 
-export function setUserAddress(token, address) {
-  return request(process.env.REACT_APP_API_URL + "/user/address", {
+export function setUserOrder(token, checkOutData) {
+  return request(process.env.REACT_APP_API_URL + "/user/order", {
     method: "POST",
-    body: JSON.stringify(address),
+    body: JSON.stringify(checkOutData),
     headers: {
       authorization: `Bearer ${token}`,
       "content-type": "application/json",

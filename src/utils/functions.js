@@ -13,6 +13,15 @@ export const findProduct = (arrayOfObjects, name) => {
   }
 };
 
+//calculate total price of items added to cart.
+export const totalPrice = (arrayOfItems) => {
+  let sum = 0;
+  for (let item of arrayOfItems) {
+    sum += item.price * item.quantity;
+  }
+  return sum.toFixed(2);
+};
+
 export const onlyLetters = (str) => {
   const regex = /^[a-zA-Z\s]+$/;
   return regex.test(str);
