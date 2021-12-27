@@ -3,15 +3,17 @@ import style from "./style.module.css";
 import Login from "./Login";
 import Register from "./Register";
 import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function Lobby() {
+  const goTo = useNavigate();
   const [toggle, setToggle] = useState(false); //used to switch login/register components
 
   return (
     <div className="lobby">
       <div className="registrationInfo">
         <div className={style.logo}>
-          <img src="/Logo.png" alt="" />
+          <img src="/Logo.png" alt="" onClick={() => goTo("/")} />
         </div>
         <div className={style.selectActive}>
           <Button
