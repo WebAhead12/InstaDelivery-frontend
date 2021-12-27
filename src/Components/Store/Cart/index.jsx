@@ -1,13 +1,15 @@
 import style from "./style.module.css";
+import "./style.css";
 import React, { useEffect, useState } from "react";
 import { Drawer, Button, Badge } from "antd";
 import Item from "./CartItem";
 import { useNavigate } from "react-router-dom";
 import { findIdx, totalPrice } from "../../../utils/functions";
 import { addItemsToCart } from "../../../utils/api";
-
+import { Spin } from "antd";
 function Cart(props) {
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const goTo = useNavigate();
   //array of items being added to cart.
   const [items, setItems] = useState([]);
@@ -128,6 +130,8 @@ function Cart(props) {
             })}
           <div className={style.checkOut}>
             <div className={style.totalPrice}>Total: {totalPrice(items)} ₪</div>
+
+            {loading ? <Spin /> : null}
             <Button
               type="primary"
               onClick={() => {
@@ -138,7 +142,11 @@ function Cart(props) {
                 } else if (token) {
                   addItemsToCart(token, items)
                     .then(() => {
-                      goTo("/checkout");
+                      setLoading(true);
+                      setTimeout(() => {
+                        setLoading(false);
+                        goTo("/checkout");
+                      }, 1000 * items.length);
                     })
                     .catch((err) => {
                       localStorage.removeItem("access_token");

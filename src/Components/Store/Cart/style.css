@@ -1,0 +1,10 @@
+.ant-spin-dot-item {
+  background-color: black !important;
+}
+
+.ant-spin-dot {
+  position: absolute;
+  left: 60px;
+  top: 10px;
+  font-size: 21px;
+}
