@@ -2,6 +2,10 @@
   padding-bottom: 20px;
 }
 
+.orderSummaryTitle {
+  font-weight: 700;
+}
+
 label {
   /* display: flex; */
   flex-direction: column;
