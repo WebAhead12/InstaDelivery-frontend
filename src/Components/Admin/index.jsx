@@ -15,24 +15,24 @@ function Admin() {
   };
   const { Panel } = Collapse;
 
-  useEffect(() => {
-    const token = localStorage.getItem("access_token");
-    if (token) {
-      getAllOrders(token);
-      // .then((res) => {
-      // if (res.id !== 1) {
-      //   alert("No admin privileges, you'll be forwarded to the main page.");
-      //   goTo("/");
-      // } else {
-      //   console.log(res.orders);
-      // }
-      // });
-    } else {
-      alert("Please Login..");
-      goTo("/");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("access_token");
+  //   if (token) {
+  //     getAllOrders(token);
+  //     // .then((res) => {
+  //     // if (res.id !== 1) {
+  //     //   alert("No admin privileges, you'll be forwarded to the main page.");
+  //     //   goTo("/");
+  //     // } else {
+  //     //   console.log(res.orders);
+  //     // }
+  //     // });
+  //   } else {
+  //     alert("Please Login..");
+  //     goTo("/");
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <div className={style.adminPage}>
