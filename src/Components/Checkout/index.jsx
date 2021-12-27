@@ -11,6 +11,7 @@ import {
   addressValidationRegex,
   zipcodeValidationRegex,
   phoneValidationRegex,
+  totalPrice,
 } from "../../utils/functions";
 import { setUserOrder, getCartItems } from "../../utils/api";
 
@@ -137,28 +138,36 @@ function Checkout() {
   return (
     <div className={style.checkout}>
       <NavBar buttonValue="Home" />
-      <table className={style.itemList}>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>quantity</th>
-            <th>price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderSummary.map((product, idx) => {
-            return (
-              <tr className={style.item} key={idx}>
-                <td>{product.id}</td>
-                <td>{product.name}</td>
-                <td>{product.quantity}</td>
-                <td>{product.price} ₪</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className={style.tableTotal}>
+        <p className="orderSummaryTitle">
+          <u>Order Summary</u>
+        </p>
+        <table className={style.itemList}>
+          <thead>
+            <tr>
+              <th>Prod. ID</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orderSummary.map((product, idx) => {
+              return (
+                <tr className={style.item} key={idx}>
+                  <td>{product.id}</td>
+                  <td>{product.name}</td>
+                  <td>{product.quantity}</td>
+                  <td>{product.price * product.quantity} ₪</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div className={style.totalPrice}>
+          Total: {totalPrice(orderSummary)} ₪
+        </div>
+      </div>
       <Form onSubmit={onSubmit} className={style.checkout}>
         <div className={style.shippingAddress}>
           <div className={style.shippingTitle}>
