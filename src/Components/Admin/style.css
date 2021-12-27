@@ -1,7 +1,3 @@
-.adminPage {
-  /* width: max-content; */
-}
-
 .userDetails {
   height: 30%;
   width: 80%;
@@ -23,8 +19,8 @@
 .ant-collapse {
   width: 79%;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: 35px !important;
+  padding: 10px;
   color: rgba(0, 0, 0, 0.85);
   font-size: 14px;
   font-variant: tabular-nums;
@@ -35,7 +31,7 @@
   border: 1px solid #d9d9d9;
   border-bottom: 0;
   border-radius: 2px;
-  margin-left: 71px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
