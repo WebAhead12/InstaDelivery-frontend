@@ -5,8 +5,5 @@
 
 .ant-form-item-label {
   height: 5px !important;
-}
-
-.ant-form-item-control-input-content {
-  /* padding-bottom: -5px !important; */
+  margin-right: 5px;
 }
